@@ -1,0 +1,222 @@
+html {
+  font-size: 14px;
+}
+// ionic reset
+
+ion-card {
+    --background: white;
+}
+
+// ion-item {
+//   --background: white;
+//   --background-activated: white;
+//   --padding-start: 1rem;
+// }
+
+ion-select {
+  &::part(icon) {
+    display: none;
+  }
+}
+
+// Common css
+
+
+.color-111 { color: #111111; }
+.color-333 { color: #333333; }
+.color-666 { color: #666666; }
+.color-999 { color: #999999; }
+
+.bg-white {
+    background-color: white;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+// Animation Support
+
+.fadeInUp {
+    animation-duration: 0.45s;
+    animation-fill-mode: both;
+    animation-name: fadeInUp;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .rotateDownRight {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-name: rotateDownRight;
+  }
+  
+  @keyframes rotateDownRight {
+    100% {
+      transform: rotate(-90deg);
+    }
+  }
+  
+  .rotateRightDown {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-name: rotateRightDown;
+  }
+  
+  @keyframes rotateRightDown {
+    0% {
+      transform: rotate(-90deg);
+    }
+  }
+  
+  .fadeOutDown {
+    animation-duration: 0.45s;
+    animation-fill-mode: both;
+    animation-name: fadeOutDown;
+  }
+  
+  @keyframes fadeOutDown {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+
+.Loading {
+  ion-spinner {
+    width: 44px;
+    height: 44px;
+    color: var(--ion-color-primary);
+  }
+}
+
+// All page css
+.Reservation {
+  ion-select {
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    --padding-end: 0px;
+    
+  }
+}
+.select-icon {
+  display: none!important;
+}
+
+.Home {
+    .hello {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 72px;
+        background-color: var(--ion-color-primary);
+    }
+    .status-select-button {
+        --padding-start: 0;
+        --padding-end: 5px;
+    }
+    .contactUs {
+      margin: 20px auto 25px;
+      padding-left: 34px;
+      height: 23px;
+      width: 102px;
+      font-size: 14px;
+      background-image: url('/images/icon_call@2x.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center  ;
+    }
+}
+
+.Butler {
+    .icon {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        // background-color: lightgrey;
+        background-image: url('/images/icon_scheduled@2x.png');
+        background-size: cover;
+    }
+
+    .title {
+        line-height: 1;
+        font-size: 14px;
+    }
+    
+    .card {
+        background-color: white;
+        flex: 0 0 calc(50% - 4px);
+    }
+}
+
+.Schedule {
+
+
+    .meetingType {
+        flex: 0 0 64px;
+    }
+
+    .meetingViewButton {
+        width: 100px;
+        text-align: right;
+    }
+
+    .item {
+        width: 100%;
+        &:last-child {
+            margin-bottom: 0!important;
+        }
+
+        
+        ion-button {
+            height: 24px;
+            --border-radius: 24px;
+        }
+
+        ion-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+        
+    }
+}
+
+
+// Dark theme
+.dark {
+  ion-card {
+    --background: #001729;
+  }
+  .card {
+    background-color: #001729;
+  }
+  .hello {
+    background-color: #000b15;
+  }
+}
