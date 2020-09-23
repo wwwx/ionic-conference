@@ -15,6 +15,7 @@ const useFetch = <T>(url: string, initialData: T) => {
 
             try {
                 const result = await http.get<T>(url)
+                // console.log(result.data)
                 setData(result.data)
             } catch (error) {
                 setIsError(true)
@@ -28,7 +29,7 @@ const useFetch = <T>(url: string, initialData: T) => {
     }, [])
 
 
-    return [data, isError, isLoading]
+    return [data, isError, isLoading] as [ T, boolean, boolean ]
 }
 
 export default useFetch
