@@ -17,7 +17,7 @@ const Reservation: React.FC = () => {
         },
     ]
     // eslint-disable-next-line 
-    const [active, setActive] = useState(tabsConfig[1].value)
+    const [active, setActive] = useState(tabsConfig[0].value)
 
     const handleTabsChange = (tabName: string) => {
         setActive(tabName)

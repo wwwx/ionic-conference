@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { IonSelect, IonSelectOption } from '@ionic/react'
 import { pickerController } from '@ionic/core'
-
-
-
+import ConferenceTimePicker from '../../components/ConferenceTimePicker'
 
 
 
@@ -11,6 +9,7 @@ const SearchByTime: React.FC = () => {
 
     const [address, setAddress] = useState<string>('1')
     const [floor, setFloor] = useState<string>('1')
+    const [time, setTime] = useState<number[]>([1,2,3])
 
     const defaultColumnOptions = [
         [
@@ -76,21 +75,29 @@ const SearchByTime: React.FC = () => {
                 </div>
                 <div className="app-item border-bottom">
                     <label>会议时间</label>
-                    <span>13:00～15:30</span>
+                    <ConferenceTimePicker { ...{time, setTime} } />
                 </div>
             </div>
 
             <div className="app-list">
                 <div className="app-item border-bottom">
                     <label>会议地点</label>
-                    <IonSelect interface="action-sheet" value={address} onIonChange={(e) => setAddress(e.detail.value)}>
+                    <IonSelect  
+                        interface="action-sheet" 
+                        value={address} 
+                        onIonChange={(e) => setAddress(e.detail.value)}
+                    >
                         <IonSelectOption value="1">由由世纪广场1号楼</IonSelectOption>
                         <IonSelectOption value="2">由由世纪广场2号楼</IonSelectOption>
                     </IonSelect>
                 </div> 
                 <div className="app-item border-bottom">
                     <label>会议楼层</label>
-                    <IonSelect interface="action-sheet" value={floor} onIonChange={(e) => setFloor(e.detail.value)}>
+                    <IonSelect  
+                        interface="action-sheet" 
+                        value={floor} 
+                        onIonChange={(e) => setFloor(e.detail.value)}
+                    >
                         <IonSelectOption value="1">26楼</IonSelectOption>
                         <IonSelectOption value="2">22楼</IonSelectOption>
                         <IonSelectOption value="3">21楼</IonSelectOption>
@@ -107,6 +114,7 @@ const SearchByTime: React.FC = () => {
                     <span>查看详情</span>
                 </div> 
             </div>
+
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { IonContent, IonPage, IonSpinner } from '@ionic/react'
 import React from 'react'
+import './Loading.scss'
 
 const Loading: React.FC = () => {
 

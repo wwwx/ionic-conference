@@ -38,70 +38,6 @@ ion-select {
     border-radius: 8px;
 }
 
-// Animation Support
-
-.fadeInUp {
-    animation-duration: 0.45s;
-    animation-fill-mode: both;
-    animation-name: fadeInUp;
-  }
-  
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .rotateDownRight {
-    animation-duration: 0.25s;
-    animation-fill-mode: both;
-    animation-name: rotateDownRight;
-  }
-  
-  @keyframes rotateDownRight {
-    100% {
-      transform: rotate(-90deg);
-    }
-  }
-  
-  .rotateRightDown {
-    animation-duration: 0.25s;
-    animation-fill-mode: both;
-    animation-name: rotateRightDown;
-  }
-  
-  @keyframes rotateRightDown {
-    0% {
-      transform: rotate(-90deg);
-    }
-  }
-  
-  .fadeOutDown {
-    animation-duration: 0.45s;
-    animation-fill-mode: both;
-    animation-name: fadeOutDown;
-  }
-  
-  @keyframes fadeOutDown {
-    0% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  
-    100% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  }
-
-
-
 label.required {
   &::after {
     content: "*";
@@ -143,14 +79,6 @@ label.required {
 
   span {
     color: #333333;
-  }
-}
-
-.Loading {
-  ion-spinner {
-    width: 44px;
-    height: 44px;
-    color: var(--ion-color-primary);
   }
 }
 
@@ -260,3 +188,67 @@ label.required {
     background-color: #000b15;
   }
 }
+
+
+// Animation Support
+
+.fadeInUp {
+  animation-duration: 0.45s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rotateDownRight {
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+  animation-name: rotateDownRight;
+}
+
+@keyframes rotateDownRight {
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+.rotateRightDown {
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+  animation-name: rotateRightDown;
+}
+
+@keyframes rotateRightDown {
+  0% {
+    transform: rotate(-90deg);
+  }
+}
+
+.fadeOutDown {
+  animation-duration: 0.45s;
+  animation-fill-mode: both;
+  animation-name: fadeOutDown;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
