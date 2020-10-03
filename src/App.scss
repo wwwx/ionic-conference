@@ -7,11 +7,6 @@ ion-card {
     --background: white;
 }
 
-// ion-item {
-//   --background: white;
-//   --background-activated: white;
-//   --padding-start: 1rem;
-// }
 
 ion-select {
   &::part(icon) {
@@ -105,6 +100,51 @@ ion-select {
     }
   }
 
+
+
+label.required {
+  &::after {
+    content: "*";
+    // color: var(--ion-color-danger);
+    color: #E02020;
+    margin-left: 4px;
+  }
+}
+
+.app-list {
+  //  rounded bg-white px-3 pb-3 mt-2
+  border-radius: 8px;
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  margin-top: .5rem;
+}
+
+.app-item {
+  //  w-100 py-3 font-14 border-bottom d-flex justify-content-between
+  padding: 2px 0px;
+  padding-right: 20px;
+  margin-right: -4px;
+  height: 50px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url('/images/eglass-arrow-right.png');
+  background-position: right center;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  line-height: 1;
+
+  label {
+    color: #666666;
+  }
+
+  span {
+    color: #333333;
+  }
+}
 
 .Loading {
   ion-spinner {

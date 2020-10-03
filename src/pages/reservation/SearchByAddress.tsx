@@ -1,53 +1,60 @@
-import React, { useEffect } from 'react'
-import useFetch from '../../hooks/useFetch'
-import useSWR from 'swr'
-// import { fetcher } from '../../utils/commonFunctions'
-import Axios from 'axios'
+import { IonSelect, IonSelectOption } from '@ionic/react'
+import React, { useState } from 'react'
 
-interface Record {
-    author: string;
-}
-
-const Profile: React.FC = () => {
-
-    // useEffect(() => {
-    //     Axios.get('/api/test').then(res => console.log(res))
-    // }, [])
-    
-    // return <div className="loading">loading....</div>
-    
-    const profileEndpoint = '/api/test'
-
-    const getData = async() => {
-        return await Axios.get(profileEndpoint)
-    }
-
-    const {data, error} = useSWR(
-        profileEndpoint, 
-        url => fetch(url).then(res => res.json())
-    )
-
-    if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
-    return <div>hello {data}!</div>
-}
 
 const SearchByAddress: React.FC = () => {
 
-    const [data, isError, isLoading] = useFetch<Record[]>('/api/test', [])
-
+    const [address, setAddress] = useState<string>('1')
+    const [floor, setFloor] = useState<string>('1')
+    const [room, setRoom] = useState<string>('1')
 
 
     return (
-        <div className="hero">
-            {isError && <div>Oops !! something went wrong</div>}
-            <div>
-                {
-                    isLoading ? 'loading....' :
-                    data.map((record, i) => <p key={i}>{record.author}</p>)
-                }
+        <div className="mx-3">
+
+
+            <div className="app-list">
+                <div className="app-item border-bottom">
+                    <label className="required">会议地点</label>
+                    <IonSelect interface="action-sheet" value={address} onIonChange={(e) => setAddress(e.detail.value)}>
+                        <IonSelectOption value="1">由由世纪广场1号楼</IonSelectOption>
+                        <IonSelectOption value="2">由由世纪广场2号楼</IonSelectOption>
+                    </IonSelect>
+                </div> 
+                <div className="app-item border-bottom">
+                    <label className="required">会议楼层</label>
+                    <IonSelect interface="action-sheet" value={floor} onIonChange={(e) => setFloor(e.detail.value)}>
+                        <IonSelectOption value="1">26楼</IonSelectOption>
+                        <IonSelectOption value="2">22楼</IonSelectOption>
+                        <IonSelectOption value="3">21楼</IonSelectOption>
+                        <IonSelectOption value="4">19楼</IonSelectOption>
+                    </IonSelect>
+                </div>
+                <div className="app-item border-bottom">
+                    <label className="required">会议室名称</label>
+                    <IonSelect interface="action-sheet" value={room} onIonChange={(e) => setRoom(e.detail.value)}>
+                        <IonSelectOption value="1">同心</IonSelectOption>
+                        <IonSelectOption value="2">共赢</IonSelectOption>
+                        <IonSelectOption value="3">华尔街</IonSelectOption>
+                    </IonSelect>
+                </div>
             </div>
-            <Profile />
+
+
+
+
+            <div className="app-list">
+                <div className="app-item border-bottom">
+                    <label>会议日期</label>
+                    <span>2020-09-11</span>
+                </div>
+                <div className="app-item border-bottom">
+                    <label>会议时间</label>
+                    <span>13:00～15:30</span>
+                </div>
+            </div>
+
+
         </div>
     )
 }

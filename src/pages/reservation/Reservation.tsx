@@ -12,7 +12,7 @@ const Reservation: React.FC = () => {
             value: 'time',
         },
         {
-            label: '按回忆地址查询',
+            label: '按会议地址查询',
             value: 'address',
         },
     ]

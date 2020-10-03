@@ -26,7 +26,7 @@ const useFetch = <T>(url: string, initialData: T) => {
         fetchData()
 
 
-    }, [])
+    }, [url])
 
 
     return [data, isError, isLoading] as [ T, boolean, boolean ]

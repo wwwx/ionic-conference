@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { IonSelect, IonSelectOption } from '@ionic/react'
 import { pickerController } from '@ionic/core'
 
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+
+
+
+
 
 const SearchByTime: React.FC = () => {
 
-    const [gender, setGender] = useState<string>('female')
+    const [address, setAddress] = useState<string>('1')
+    const [floor, setFloor] = useState<string>('1')
 
     const defaultColumnOptions = [
         [
@@ -64,52 +67,45 @@ const SearchByTime: React.FC = () => {
       }
 
 
-
-      const useStyles = makeStyles((theme: Theme) =>
-        createStyles({
-            container: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            },
-            textField: {
-            marginLeft: theme.spacing(1),
-            marginRight: theme.spacing(1),
-            width: 100,
-            },
-        }),
-        );
-
-        const classes = useStyles();
-
     return (
         <div className="mx-3">
-            <div className="rounded bg-white p-3 mt-2">
-                <div className="item w-100 pb-3 font-14 border-bottom d-flex justify-content-between">
-                    <label className="color-666">会议地点</label>
-                    {/* <span className="color-333">2020-09-11</span> */}
-                    <IonSelect interface="action-sheet" value={gender} onIonChange={(e) => setGender(e.detail.value)}>
-                        <IonSelectOption value="female">Female</IonSelectOption>
-                        <IonSelectOption value="male">Male</IonSelectOption>
+            <div className="app-list">
+                <div className="app-item border-bottom">
+                    <label className="required">会议日期</label>
+                    <span onClick={() => openPicker()}>2020-09-11</span>
+                </div>
+                <div className="app-item border-bottom">
+                    <label>会议时间</label>
+                    <span>13:00～15:30</span>
+                </div>
+            </div>
+
+            <div className="app-list">
+                <div className="app-item border-bottom">
+                    <label>会议地点</label>
+                    <IonSelect interface="action-sheet" value={address} onIonChange={(e) => setAddress(e.detail.value)}>
+                        <IonSelectOption value="1">由由世纪广场1号楼</IonSelectOption>
+                        <IonSelectOption value="2">由由世纪广场2号楼</IonSelectOption>
+                    </IonSelect>
+                </div> 
+                <div className="app-item border-bottom">
+                    <label>会议楼层</label>
+                    <IonSelect interface="action-sheet" value={floor} onIonChange={(e) => setFloor(e.detail.value)}>
+                        <IonSelectOption value="1">26楼</IonSelectOption>
+                        <IonSelectOption value="2">22楼</IonSelectOption>
+                        <IonSelectOption value="3">21楼</IonSelectOption>
+                        <IonSelectOption value="4">19楼</IonSelectOption>
                     </IonSelect>
                 </div>
-                <div className="item w-100 py-3 font-14 border-bottom d-flex justify-content-between">
-                    <label className="color-666">会议时间</label>
-                    <span className="color-333" onClick={() => openPicker()}>2020-09-11</span>
-                </div>
-                <div className="item w-100 py-3 font-14 border-bottom d-flex justify-content-between">
-                    <label className="color-666">会议时间</label>
-                    <TextField
-                        id="date"
-                        label="Birthday"
-                        type="date"
-                        defaultValue="2017-05-24"
-                        className={classes.textField}
-                        InputLabelProps={{
-                        shrink: true,
-                        }}
-                    />
-                </div>
-                
+            </div>
+
+
+
+            <div className="app-list">
+                <div className="app-item border-bottom">
+                    <label>会议设备</label>
+                    <span>查看详情</span>
+                </div> 
             </div>
         </div>
     )
