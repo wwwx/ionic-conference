@@ -23,6 +23,8 @@ import './App.scss'
 /* eslint-disable import/first */
 const Home = lazy(() => import('./pages/home/Home'))
 const Reservation = lazy(() => import('./pages/reservation/Reservation'))
+const AvailableRoom = lazy(() => import('./pages/room/AvailableRoom'))
+const RoomDetail = lazy(() => import('./pages/room/RoomDetail'))
 const TestDatePicker = lazy(() => import('./components/TestDatePicker'))
 
 interface Page {
@@ -41,6 +43,16 @@ const pages: Page[] = [
     pageLink: '/reservation',
     view: Reservation,
     displayName: 'Reservation'
+  },
+  {
+    pageLink: '/available-room',
+    view: AvailableRoom,
+    displayName: 'AvailableRoom'
+  },
+  {
+    pageLink: '/room-detail',
+    view: RoomDetail,
+    displayName: 'RoomDetail'
   },
   {
     pageLink: '/loading',

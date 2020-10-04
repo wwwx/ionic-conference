@@ -21,6 +21,7 @@ ion-select {
 .color-333 { color: #333333; }
 .color-666 { color: #666666; }
 .color-999 { color: #999999; }
+.color-ccc { color: #cccccc; }
 
 .bg-white {
     background-color: white;
@@ -50,6 +51,13 @@ label.required {
 .app-button {
   --border-radius: 24px;
   font-size: 1rem;
+}
+
+.app-card {
+  border-radius: 8px;
+  background-color: white;
+  padding: .75rem;
+  margin: 1rem;
 }
 
 .app-list {
@@ -182,6 +190,42 @@ label.required {
         }
         
     }
+}
+
+.AvailableRoom {
+  .app-card {
+    .left {
+      flex: 0 0 28%;
+      align-self: stretch;
+      background-color: #f2f2f2;
+    }
+    .right {
+      flex: 1;
+      margin-left: .75rem;
+      overflow: hidden;
+    }
+    .people-num {
+      flex: 0 0 40px;
+      text-align: right;
+      color: var(--ion-color-primary);
+    }
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .app-button {
+      flex: 1;
+      height: 2.4em;
+      margin: 0;
+    }
+    .devices {
+      ion-chip {
+        border-radius: 8px;
+        padding: 2px 12px;
+        height: 24px;
+      }
+    }
+  }
 }
 
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { IonButton, IonSelect, IonSelectOption } from '@ionic/react'
 import { pickerController } from '@ionic/core'
 import TimePicker from '../../components/TimePicker'
+import { useHistory } from 'react-router'
 
 
 
@@ -10,6 +11,7 @@ const SearchByTime: React.FC = () => {
     const [address, setAddress] = useState<string>('1')
     const [floor, setFloor] = useState<string>('1')
     const [time, setTime] = useState<number[]>([])
+    const history = useHistory()
 
     const defaultColumnOptions = [
         [
@@ -65,6 +67,9 @@ const SearchByTime: React.FC = () => {
         return options;
       }
 
+    function handleNextClick() {
+        history.push('/available-room')
+    }
 
     return (
         <div className="mx-3">
@@ -116,7 +121,11 @@ const SearchByTime: React.FC = () => {
             </div>
 
 
-            <IonButton className="app-button mt-5 mb-4" expand="block">
+            <IonButton 
+                className="app-button mt-5 mb-4" 
+                expand="block"
+                onClick={handleNextClick}
+            >
                 查看可用会议室
             </IonButton>
 
