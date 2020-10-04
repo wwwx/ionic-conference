@@ -1,5 +1,6 @@
-import { IonSelect, IonSelectOption } from '@ionic/react'
+import { IonButton, IonSelect, IonSelectOption } from '@ionic/react'
 import React, { useState } from 'react'
+import TimePicker from '../../components/TimePicker'
 
 
 const SearchByAddress: React.FC = () => {
@@ -7,6 +8,7 @@ const SearchByAddress: React.FC = () => {
     const [address, setAddress] = useState<string>('1')
     const [floor, setFloor] = useState<string>('1')
     const [room, setRoom] = useState<string>('1')
+    const [time, setTime] = useState<number[]>([])
 
 
     return (
@@ -50,9 +52,13 @@ const SearchByAddress: React.FC = () => {
                 </div>
                 <div className="app-item border-bottom">
                     <label>会议时间</label>
-                    <span>13:00～15:30</span>
+                    <TimePicker { ...{time, setTime} } />
                 </div>
             </div>
+
+            <IonButton className="app-button mt-5 mb-4" expand="block">
+                下一步
+            </IonButton>
 
 
         </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import SearchByTime from './SearchByTime'
 import SearchByAddress from './SearchByAddress'
 import AppHeader from '../../components/AppHeader'
+import BackHome from '../../components/BackHome'
 // import http from '../../utils/http'
 
 const Reservation: React.FC = () => {
@@ -47,6 +48,7 @@ const Reservation: React.FC = () => {
                 </IonToolbar>
                 {active === 'time' && <SearchByTime />}
                 {active === 'address' && <SearchByAddress />}
+                <BackHome />
             </IonContent>
         </IonPage>
     )

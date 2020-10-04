@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { IonSelect, IonSelectOption } from '@ionic/react'
+import { IonButton, IonSelect, IonSelectOption } from '@ionic/react'
 import { pickerController } from '@ionic/core'
-import ConferenceTimePicker from '../../components/ConferenceTimePicker'
+import TimePicker from '../../components/TimePicker'
 
 
 
@@ -9,7 +9,7 @@ const SearchByTime: React.FC = () => {
 
     const [address, setAddress] = useState<string>('1')
     const [floor, setFloor] = useState<string>('1')
-    const [time, setTime] = useState<number[]>([1,2,3])
+    const [time, setTime] = useState<number[]>([])
 
     const defaultColumnOptions = [
         [
@@ -74,8 +74,8 @@ const SearchByTime: React.FC = () => {
                     <span onClick={() => openPicker()}>2020-09-11</span>
                 </div>
                 <div className="app-item border-bottom">
-                    <label>会议时间</label>
-                    <ConferenceTimePicker { ...{time, setTime} } />
+                    <label className="required">会议时间</label>
+                    <TimePicker { ...{time, setTime} } />
                 </div>
             </div>
 
@@ -114,6 +114,11 @@ const SearchByTime: React.FC = () => {
                     <span>查看详情</span>
                 </div> 
             </div>
+
+
+            <IonButton className="app-button mt-5 mb-4" expand="block">
+                查看可用会议室
+            </IonButton>
 
         </div>
     )

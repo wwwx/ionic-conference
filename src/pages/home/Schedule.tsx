@@ -23,7 +23,7 @@ const Item: React.FC<MyItemProps> = (props) => {
                         {props.data.status === 3 && '已结束'}
                     </span>
                 </IonButton >
-                <span className="font-12 color-666">14:30~15:00</span>
+                <span className="ml-1 font-12 color-666">14:30~15:00</span>
             </div>
             <div className="bottom d-flex justify-content-between">
                 <span className="meetingType font-14">【会议】</span>
