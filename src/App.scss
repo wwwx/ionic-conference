@@ -53,10 +53,21 @@ label.required {
   font-size: 1rem;
 }
 
+.app-select-placeholder {
+  color: rgba(0, 0, 0, .33);
+}
+
+.app-block-title {
+  // m-3 mt-4 d-flex justify-content-between
+  margin: 1.5rem 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
 .app-card {
   border-radius: 8px;
   background-color: white;
-  padding: .75rem;
+  padding: 1rem;
   margin: 1rem;
 }
 
@@ -86,11 +97,11 @@ label.required {
   background-repeat: no-repeat;
   line-height: 1;
 
-  label {
+  > label {
     color: #666666;
   }
 
-  span {
+  > span:not(.app-select-placeholder) {
     color: #333333;
     text-align: right;
     height: 2em;
@@ -153,21 +164,24 @@ label.required {
         font-size: 14px;
     }
     
-    .card {
+    .app-card {
+      display: flex;
+      align-items: center;
+        margin: 0;
         background-color: white;
         flex: 0 0 calc(50% - 4px);
     }
 }
 
 .Schedule {
-
+  
 
     .meetingType {
         flex: 0 0 56px;
     }
 
     .meetingViewButton {
-        width: 100px;
+        width: 58px;
         text-align: right;
     }
 
@@ -194,6 +208,7 @@ label.required {
 
 .AvailableRoom {
   .app-card {
+    padding: .75rem;
     .left {
       flex: 0 0 28%;
       align-self: stretch;

@@ -1,7 +1,7 @@
 import Modal from './Modal'
 import './TimePicker.scss'
 import React, { useCallback, useEffect, useState } from 'react'
-import classnams from 'classnames'
+import classnames from 'classnames'
 
 export const picklist = [
     '09:00~10:30', '09:30~10:00', '10:00~10:30', '10:30~11:00',
@@ -35,7 +35,7 @@ const Item: React.FC<ItemProps> = ({ title, isActive, i, time, setTime }) => {
 
     return (
         <div 
-            className={classnams('item', isActive ? 'active' : '')}  
+            className={classnames('item', isActive ? 'active' : '')}  
             onClick={handleClick}
         >
             <span className="border">{title}</span>
@@ -88,7 +88,12 @@ const TimePicker: React.FC<TimeProps> = ({ time, setTime }) => {
     }, [time])
 
     return <>
-        <span onClick={() => setModalVisible(true)}>{title || '请选择'}</span>
+        <span 
+            onClick={() => setModalVisible(true)}
+            className={classnames(!title && 'app-select-placeholder')}
+        >
+                {title || '请选择'}
+        </span>
         <Modal
             visible={modalVisible} 
             hide={() => setModalVisible(false)}

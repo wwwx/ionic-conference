@@ -22,6 +22,7 @@ import './App.scss'
 
 /* eslint-disable import/first */
 const Home = lazy(() => import('./pages/home/Home'))
+const MySchedule = lazy(() => import('./pages/home/MySchedule'))
 const Reservation = lazy(() => import('./pages/reservation/Reservation'))
 const AvailableRoom = lazy(() => import('./pages/room/AvailableRoom'))
 const RoomDetail = lazy(() => import('./pages/room/RoomDetail'))
@@ -38,6 +39,11 @@ const pages: Page[] = [
     pageLink: '/',
     view: Home,
     displayName: 'Home'
+  },
+  {
+    pageLink: '/my-schedule',
+    view: MySchedule,
+    displayName: 'MySchedule'
   },
   {
     pageLink: '/reservation',
