@@ -133,11 +133,12 @@ const Calendar: React.FC<CalendarProps> = ({
                                             const current = dateList[num]
                                             const disabled = dayOfcurrentMonthFirthDay > num ||
                                                              current.getMonth() !== currentMonthFirstDay.getMonth()
-                                            const isMonthOfSelected = date.getMonth() === current.getMonth()
-                                            const isMonthOfToday = today.getMonth() === current.getMonth()
+                                            const isMonthOfSelected = current.getMonth() === date.getMonth()
                                             const isThisYear = current.getFullYear() === date.getFullYear()
+                                            const isMonthOfToday = current.getMonth() === today.getMonth()
+                                            const isYearOfToday = current.getFullYear() === today.getFullYear()
                                             const isActive = !disabled && isThisYear && isMonthOfSelected && current.getDate() === date.getDate()
-                                            const isToday = !disabled && isMonthOfToday && current.getDate() === today.getDate()
+                                            const isToday = !disabled && isYearOfToday && isMonthOfToday && current.getDate() === today.getDate()
                                             return (
                                             <li 
                                                 key={'__'+num}

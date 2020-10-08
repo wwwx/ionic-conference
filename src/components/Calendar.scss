@@ -18,26 +18,41 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    height: 32px;
+    margin-right: -5px;
+    margin-left: -5px;
     .title {
         font-size: 16px;
         font-weight: 500;
     }
     .next,
     .prev {
-        flex: 0 0 8px;
-        width: 8px;
-        height: 8px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: var(--ion-color-primary);
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            height: 30%;
+            width: 30%;
+            border-width: 1px;
+            border-style: solid;
+            border-color: var(--ion-color-primary);
+        }
+
     }
 
-    .prev {
+    .prev::after  {
+        left:12px;
         border-right: transparent;
         border-top: transparent;
         transform: rotate(45deg);
     }
-    .next {
+    .next::after  {
+        right: 12px;
         border-right: transparent;
         border-top: transparent;
         transform: rotate(-135deg);

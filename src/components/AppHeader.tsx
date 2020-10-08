@@ -11,7 +11,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ title = '', showBackButton = true
         <IonHeader>
             <IonToolbar color="primary">
                 {showBackButton && <IonButtons slot="start">
-                    <IonBackButton mode="md"></IonBackButton>
+                    <IonBackButton mode="md" defaultHref="/"></IonBackButton>
                 </IonButtons>}
                 <IonTitle className="text-center">{title || children}</IonTitle>
             </IonToolbar>

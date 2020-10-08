@@ -46,16 +46,16 @@ const Profile: React.FC = () => {
                 </div>
                 <div className="block2 d-flex justify-content-between text-center px-2 mt-4">
                     <div className="fadeInUp" style={trail[3]}>
-                        <IonText color="primary" className="font-21">23</IonText>
+                        <IonText color="primary" className="font-21">26</IonText>
                         <p className="color-666 font-12 mt-1">会议邀请</p>
                     </div>
                     <div className="fadeInUp" style={trail[4]}>
-                        <IonText color="primary" className="font-20">23</IonText>
-                        <p className="color-666 font-12 mt-1">会议邀请</p>
-                    </div>
+                        <IonText color="primary" className="font-20">8</IonText>
+                        <p className="color-666 font-12 mt-1">待发布纪要</p>
+                    </div> 
                     <div className="fadeInUp" style={trail[5]}>
-                        <IonText color="primary" className="font-20">23</IonText>
-                        <p className="color-666 font-12 mt-1">会议邀请</p>
+                        <IonText color="primary" className="font-20">8</IonText>
+                        <p className="color-666 font-12 mt-1">最新消息</p>
                     </div>
                 </div>
             </IonCardContent>
