@@ -3,10 +3,12 @@ import { IonContent, IonPage } from '@ionic/react'
 import Calendar, {toDateLocaleString} from '../../components/Calendar'
 import AppHeader from '../../components/AppHeader'
 import ScheduleItem from './ScheduleItem'
+import dayjs from 'dayjs'
+import useFetch from '../../hooks/useFetch'
 
 const MySchedule: React.FC = () => {
 
-    const list = [
+    const defaultList = [
         { color: 'primary', status: 1 },
         { color: 'warning', status: 2 },
         { color: 'medium', status: 3 },
@@ -15,11 +17,23 @@ const MySchedule: React.FC = () => {
     ]
 
     const [date, setDate] = useState(Date.now())
+    const [list, setList] = useState<any[]>(defaultList)
 
     function handleClick(value: number) {
-        // console.log(value)
         setDate(value)
+        const DATE_FORM = 'YYYY/MM/DD'
+        const today = dayjs().format(DATE_FORM)
+        const selected = dayjs(value).format(DATE_FORM)
+        // console.log(today, selected)
+        if (today === selected) {
+            setList(defaultList)
+        } else {
+            setList([])
+        }
     }
+
+    
+    const [data, isError, isLoading] = useFetch('/api/test', [])
     
     return (
         <IonPage className="MySchedule">
@@ -37,11 +51,13 @@ const MySchedule: React.FC = () => {
                     <span className="color-666 font-14">{toDateLocaleString(date)}</span>
                 </div>
                 <div className="app-card Schedule">
-                    {list.map(
+                    {isError && <div>Oops !! something went wrong</div>}
+                    {isLoading ? 'loading....' : '12312'}
+                    {/* {list.map(
                         (_, i) => <ScheduleItem data={_} style={{
                             animationDelay: `${(i+1) * 200}ms`
                         }} key={i} />
-                    )}
+                    )} */}
                 </div>
             </IonContent>
         </IonPage>
