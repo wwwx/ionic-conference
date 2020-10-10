@@ -1,26 +1,21 @@
 import React from 'react'
-import ScheduleItem from './ScheduleItem'
+import ScheduleList from './ScheduleList'
+import { toDateLocaleString } from '../../components/Calendar'
+import dayjs from 'dayjs'
 
 const Schedule: React.FC = () => {
-    const list = [
-        { color: 'primary', status: 1 },
-        { color: 'warning', status: 2 },
-        { color: 'medium', status: 3 },
-        { color: 'medium', status: 3 },
-        { color: 'medium', status: 3 },
-    ]
+    const DATE_FORMAT = 'YYYY/MM/DD'
+    const date = new Date(dayjs().format(DATE_FORMAT)).getTime();
+
+
     return (
         <React.Fragment>
             <div className="app-block-title fadeInUp">
                 <span className="color-111 font-weight-bold">会议日程</span>
-                <span className="color-666 font-14">09-06 星期一</span>
+                <span className="color-666 font-14">{toDateLocaleString(date)}</span>
             </div>
-            <div className="app-card Schedule">
-                {list.map(
-                    (_, i) => <ScheduleItem data={_} style={{
-                        animationDelay: `${(i+1) * 200}ms`
-                    }} key={i} />
-                )}
+            <div className="app-card">
+                <ScheduleList date={date} />
             </div>
         </React.Fragment>
     )

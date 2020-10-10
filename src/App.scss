@@ -114,6 +114,17 @@ label.required {
   }
 }
 
+      
+.empty-img {
+  display: block;
+  width: 64%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.empty-message {
+  color: #AAAAAA;
+}
+
 // All page css
 .Reservation {
   ion-select {
@@ -153,6 +164,10 @@ label.required {
     }
 }
 
+.Profile {
+  min-height: 160px;
+}
+
 .Butler {
     .icon {
         display: inline-block;
@@ -178,7 +193,9 @@ label.required {
 }
 
 .Schedule {
-  
+    .app-card {
+      min-height: 240px;
+    }
 
     .meetingType {
         flex: 0 0 56px;

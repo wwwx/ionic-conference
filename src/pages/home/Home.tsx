@@ -8,7 +8,7 @@ const Schedule = lazy(() => import('./Schedule'))
 const Home: React.FC = () => {
   return (
     <IonPage className="Home">
-      <AppHeader>
+      <AppHeader showBackButton={false}>
         会议管理
       </AppHeader>
       <IonContent>
