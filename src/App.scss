@@ -152,7 +152,7 @@ label.required {
         --padding-end: 5px;
     }
     .contactUs {
-      margin: 20px auto 25px;
+      margin: 25px auto 35px;
       padding-left: 34px;
       height: 23px;
       width: 102px;
@@ -261,6 +261,18 @@ label.required {
         height: 24px;
       }
     }
+  }
+}
+
+.RoomDetailItem {
+  display: flex;
+  align-items: center;
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #cccccc;
+    margin-right: .5rem;
+    border-radius: 4px;
   }
 }
 
