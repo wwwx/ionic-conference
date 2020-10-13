@@ -73,6 +73,81 @@ label.required {
   background-color: white;
   padding: 1rem;
   margin: 1rem;
+  position: relative;
+
+  &__head {
+    font-size: 16px;
+    font-weight: 500;
+    color: #262626;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  &__body {
+    // padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__foot {
+    padding: 2px 1rem;
+    margin-bottom: -1rem;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    > * {
+      flex: 1;
+      
+    }
+
+    
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    background-color: transparent;
+    outline: none;
+
+    span {
+      height: 34px;
+      line-height: 34px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    &.confirm {
+      color: var(--ion-color-primary);
+    }
+    &.cancel {
+      color: #999999;
+    }
+  }
+  &__tag {
+    background-color: #F99C33;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    padding: 4px 1rem;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  
+
+  .title {
+    display: block;
+    margin-right: 68px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .app-list {
@@ -114,16 +189,7 @@ label.required {
   }
 }
 
-      
-.empty-img {
-  display: block;
-  width: 64%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.empty-message {
-  color: #AAAAAA;
-}
+
 
 // All page css
 .Reservation {
@@ -264,6 +330,18 @@ label.required {
   }
 }
 
+.RoomDetail {
+  .carousel-wrap {
+    overflow: hidden;
+
+    .swiper-pagination-bullet {
+      border-radius: 0;
+      width: 10px;
+      height: 2px;
+    }
+  }
+}
+
 .RoomDetailItem {
   display: flex;
   align-items: center;
@@ -273,6 +351,38 @@ label.required {
     background-color: #cccccc;
     margin-right: .5rem;
     border-radius: 4px;
+  }
+}
+
+.Card {
+  .ul {
+    padding: 0;
+    margin: 0;
+    li {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      label {
+        flex: 0 0 66px;
+      }
+
+      label + span {
+        flex: 1;
+        color: #666666;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &:not(:last-child) {
+        
+        margin-bottom: 1rem;
+      }
+
+      .datetime {
+        color: var(--ion-color-primary)
+      }
+    }
   }
 }
 

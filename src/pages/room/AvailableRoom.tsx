@@ -28,6 +28,10 @@ const Item: React.FC = () => {
         history.push('/room-detail')
 
     }
+
+    function booking() {
+    }
+
     return (
         <div className="app-card d-flex">
             <div className="left rounded"></div>
@@ -55,6 +59,7 @@ const Item: React.FC = () => {
                         </IonButton>
                         <IonButton
                             className="app-button ml-2"
+                            onClick={booking}
                         >
                             预定
                         </IonButton>

@@ -26,7 +26,7 @@ const Profile: React.FC = () => {
                 </div>
                 <div className="app-card mb-2 ml-2 fadeInUp" style={trail[2]}>
                     <div className="icon mr-2 rounded"></div>
-                    <div className="title color-111">我的会议</div>
+                    <Link className="title color-111" to="/mine/conference">我的会议</Link>
                 </div>
                 <div className="app-card fadeInUp" style={trail[3]}>
                     <div className="icon mr-2 rounded"></div>

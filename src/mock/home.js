@@ -4,14 +4,8 @@ import dayjs from 'dayjs'
 Mock.setup({ timeout: 300 })
 
 function getQueryJson(url) {
-    const result = {}
     const search = url.split('?')[1]
-     search.split('&').map(v => {
-        const o = v.split('=')
-        result[o[0]] = o[1]
-        return null
-    })
-    return result
+    return JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
 }
 
 Mock.mock(new RegExp('/api/test.*'), 'get', function(options) {
@@ -48,6 +42,7 @@ Mock.mock('/api/profile', 'get', function() {
 Mock.mock(new RegExp('/api/my-schedule.*'), 'get', function(options) {
     const params = getQueryJson(options.url)
     console.log('fetch: ',options.url)
+    // console.log(params)
 
     const DATE_FORMAT = 'YYYY/MM/DD'
     if (dayjs(+params.date).format(DATE_FORMAT) === dayjs().format(DATE_FORMAT)) {
@@ -62,5 +57,34 @@ Mock.mock(new RegExp('/api/my-schedule.*'), 'get', function(options) {
     }
 
     return null
+    
+})
+
+
+/**
+ * 获取我的会议邀请列表
+ * 
+ */
+Mock.mock(new RegExp('/api/invite-list.*'), 'get', function(options) {
+
+    // return null;
+    return [
+        { type: 1, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源' },
+    ]
+    
+})
+
+/**
+ * 获取我的会议列表
+ * 
+ */
+Mock.mock(new RegExp('/api/conference-list.*'), 'get', function(options) {
+
+    // return null;
+    return [
+        { type: 1, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源' },
+        { type: 2, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源' },
+        { type: 3, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源' },
+    ]
     
 })

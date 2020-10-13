@@ -1,6 +1,7 @@
 import { IonAvatar, IonButton } from '@ionic/react'
 import React from 'react'
 import useSWR from 'swr';
+import { Empty, ErrorMessage, Loading } from '../../components/Common';
 import fetcher from '../../service/base-service'
 
 type ScheduleParams = {
@@ -57,24 +58,6 @@ const ScheduleItem: React.FC<ScheduleItemProps> = (props) => {
             </div>
         </div>
     )
-}
-
-
-function Empty() {
-    return (
-        <>
-        <img className="empty-img my-4" src="/images/icon_empty@2x.png" alt=""/>
-        <p className="empty-message text-center">暂无日程</p>
-        </>
-    )
-}
-
-function Loading() {
-    return <div>loading...</div>
-}
-
-function ErrorMessage() {
-    return <div>Oops !! something went wrong</div>
 }
 
 

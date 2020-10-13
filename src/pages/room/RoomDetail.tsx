@@ -1,4 +1,4 @@
-import { IonContent, IonPage } from '@ionic/react'
+import { IonContent, IonPage, IonSlide, IonSlides } from '@ionic/react'
 import React, { useState } from 'react'
 import AppHeader from '../../components/AppHeader'
 import { toDateLocaleString } from '../../components/Calendar'
@@ -18,6 +18,39 @@ function RoomDetailItem(props: RoomDetailItemProps) {
     )
 }
 
+function Carousel() {
+    const roomList = [
+        {
+            imgUrl: require('./images/room3.jpg')
+        },
+    ]
+    const slideOpts = {
+        initialSlide: 1,
+        // speed: 400,
+        autoplay: {
+            delay: 3000,
+        },
+    };
+    const RoomStyle = {
+        width: '100%',
+        height: '120px',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+    }
+    return (
+        <IonSlides pager={true} options={slideOpts}>
+            {roomList.map((room, i) => {
+                return (
+                    <IonSlide key={i}>
+                        <div style={{ ...RoomStyle, backgroundImage: `url(${room.imgUrl})` }}></div>
+                    </IonSlide>
+                )
+            })}
+        </IonSlides>
+    )
+}
+
 const RoomDetail: React.FC = () => {
 
     const [time, setTime] = useState<number[]>([1,2,3])
@@ -31,6 +64,9 @@ const RoomDetail: React.FC = () => {
             </AppHeader>
             <IonContent>
 
+                <div className="carousel-wrap rounded m-3">
+                    <Carousel />
+                </div>
                 
                 <div className="app-block-title">
                     <span className="color-111 font-weight-bold">共赢会议室</span>

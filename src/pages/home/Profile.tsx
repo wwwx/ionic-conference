@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { IonCard, IonCardContent, IonAvatar, IonText, IonButton, IonSelect, IonSelectOption } from '@ionic/react'
 import useSWR from 'swr'
 import fetcher from '../../service/base-service'
+import { Link } from 'react-router-dom';
 
 
 function ProfileContent() {
@@ -54,18 +55,54 @@ function ProfileContent() {
             
         </div>
         <div className="block2 d-flex justify-content-between text-center px-2 mt-4">
-            <div className="fadeInUp" style={trail[3]}>
-                <IonText color="primary" className="font-21">{profile.inviteNum}</IonText>
-                <p className="color-666 font-12 mt-1">会议邀请</p>
-            </div>
-            <div className="fadeInUp" style={trail[4]}>
-                <IonText color="primary" className="font-20">{profile.summaryDraftNum}</IonText>
-                <p className="color-666 font-12 mt-1">待发布纪要</p>
-            </div> 
-            <div className="fadeInUp" style={trail[5]}>
-                <IonText color="primary" className="font-20">{profile.messageNum}</IonText>
-                <p className="color-666 font-12 mt-1">最新消息</p>
-            </div>
+            <Link 
+                className="fadeInUp" 
+                style={trail[3]}
+                to="/mine/invite"
+            >
+                <IonText 
+                    color="primary" 
+                    className="font-21"
+                >
+                    {profile.inviteNum}
+                </IonText>
+                <p className="color-666 font-12 mt-1">
+                会议邀请
+                </p>
+            </Link>
+
+            <Link 
+                className="fadeInUp" 
+                style={trail[4]}
+                to="/"
+            >
+                <IonText 
+                    color="primary" 
+                    className="font-21"
+                >
+                    {profile.summaryDraftNum}
+                </IonText>
+                <p className="color-666 font-12 mt-1">
+                待发布纪要
+                </p>
+            </Link>
+
+            <Link 
+                className="fadeInUp" 
+                style={trail[5]}
+                to="/"
+            >
+                <IonText 
+                    color="primary" 
+                    className="font-21"
+                >
+                    {profile.messageNum}
+                </IonText>
+                <p className="color-666 font-12 mt-1">
+                最新消息
+                </p>
+            </Link>
+
         </div>
         </>
     )

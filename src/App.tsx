@@ -26,6 +26,7 @@ const MySchedule = lazy(() => import('./pages/home/MySchedule'))
 const Reservation = lazy(() => import('./pages/reservation/Reservation'))
 const AvailableRoom = lazy(() => import('./pages/room/AvailableRoom'))
 const RoomDetail = lazy(() => import('./pages/room/RoomDetail'))
+const Mine = lazy(() => import('./pages/mine/Mine'))
 const TestDatePicker = lazy(() => import('./components/TestDatePicker'))
 
 interface Page {
@@ -59,6 +60,11 @@ const pages: Page[] = [
     pageLink: '/room-detail',
     view: RoomDetail,
     displayName: 'RoomDetail'
+  },
+  {
+    pageLink: '/mine/:type',
+    view: Mine,
+    displayName: 'Mine'
   },
   {
     pageLink: '/loading',
