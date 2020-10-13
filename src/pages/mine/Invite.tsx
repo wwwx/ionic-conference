@@ -1,8 +1,9 @@
 import React from 'react'
 import useSWR from 'swr'
-import { InviteCard } from './Card'
+import InviteCard from './Card/InviteCard'
 import fetcher from '../../service/base-service'
 import { Empty, ErrorMessage, Loading } from '../../components/Common';
+import { MineCardParams } from '../../service/mine.model'
 
 const Invite: React.FC = () => {
 

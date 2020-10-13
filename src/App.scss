@@ -127,9 +127,8 @@ label.required {
     }
   }
   &__tag {
-    background-color: #F99C33;
     position: absolute;
-    top: 1rem;
+    top: .75rem;
     right: 0;
     padding: 4px 1rem;
     border-top-left-radius: 24px;
@@ -137,11 +136,20 @@ label.required {
     color: #ffffff;
     font-size: 14px;
     line-height: 1;
+
+    &.host {
+
+    background-color: #F99C33;
+    }
+    &.participate {
+
+    background-color: #1AB71B;
+    }
   }
 
   
 
-  .title {
+  ._title {
     display: block;
     margin-right: 68px;
     white-space: nowrap;
@@ -250,11 +258,12 @@ label.required {
     }
     
     .app-card {
+      flex: 1;
       display: flex;
       align-items: center;
-        margin: 0;
-        background-color: white;
-        flex: 0 0 calc(50% - 4px);
+      margin: 0;
+      background-color: white;
+        // flex: 0 0 calc(50% - 4px);
     }
 }
 

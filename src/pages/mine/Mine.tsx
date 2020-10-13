@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import AppHeader from '../../components/AppHeader'
 import Conference from './Conference'
 import Invite from './Invite'
+import { MineRouteParams } from '../../service/mine.model'
 
 const Mine: React.FC = (props) => {
     const tabsConfig = [

@@ -1,8 +1,11 @@
 import React from 'react'
 import useSWR from 'swr'
-import { ConferenceFinishCard, ConferenceBeforeCard } from './Card'
+import ConferenceHasNotStartCard from './Card/ConferenceHasNotStartCard'
+import ConferenceFinishedCard from './Card/ConferenceFinishedCard'
 import fetcher from '../../service/base-service'
 import { Empty, ErrorMessage, Loading } from '../../components/Common';
+import { MineCardParams } from '../../service/mine.model'
+import { ConferenceType } from '../../service/enum'
 
 const Conference: React.FC = () => {
 
@@ -32,25 +35,34 @@ const Conference: React.FC = () => {
         (item: MineCardParams, i: number) => {
 
             switch(item.type) {
-                case 1: 
-                return <ConferenceFinishCard 
-                    data={item} 
-                    key={i} 
-                    onConfirm={handConfirm}
-                />
-                case 2: 
-                return <ConferenceBeforeCard 
+                case ConferenceType.FINISHED: 
+                return <ConferenceFinishedCard 
                     data={item}
                     key={i} 
+                    typeName="主持"
                     onConfirm={handConfirm}
                 />
+                case ConferenceType.HAS_NOT_START: 
+
+                    if (item.isHost) {
+                        return <ConferenceHasNotStartCard 
+                            data={item}
+                            key={i} 
+                            typeName="主持"
+                            onConfirm={handConfirm}
+                            onCancel={handleCancel}
+                        />
+                    } else {
+
+                        return <ConferenceHasNotStartCard 
+                            data={item}
+                            key={i} 
+                            typeName="参与"
+                            onConfirm={handConfirm}
+                        />
+                    }
                 case 3: 
-                return <ConferenceBeforeCard 
-                    data={item}
-                    key={i} 
-                    onConfirm={handConfirm}
-                    onCancel={handleCancel}
-                />
+
                 
             }
             return null;

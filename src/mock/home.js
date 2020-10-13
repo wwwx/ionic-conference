@@ -82,9 +82,9 @@ Mock.mock(new RegExp('/api/conference-list.*'), 'get', function(options) {
 
     // return null;
     return [
-        { type: 1, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源' },
-        { type: 2, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源' },
-        { type: 3, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源' },
+        { type: 2, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源', isHost: true },
+        { type: 0, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源', isHost: false },
+        { type: 0, title: '系统测评上线风暴沟通会', address: '由由职场1号楼18F', datetime: '2020-10-19 13:00~14:00', host: '黄海波 战略与人力资源', isHost: true },
     ]
     
 })
