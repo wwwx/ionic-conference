@@ -1,18 +1,20 @@
 html {
   font-size: 14px;
 }
+
 a {
   text-decoration: none;
 }
+
 // ionic reset
 
 ion-card {
-    --background: white;
+  --background: white;
 }
 
 
 ion-select {
-  &::part(icon)  {
+  &::part(icon) {
     display: none;
 
   }
@@ -21,14 +23,28 @@ ion-select {
 // Common css
 
 
-.color-111 { color: #111111; }
-.color-333 { color: #333333; }
-.color-666 { color: #666666; }
-.color-999 { color: #999999; }
-.color-ccc { color: #cccccc; }
+.color-111 {
+  color: #111111;
+}
+
+.color-333 {
+  color: #333333;
+}
+
+.color-666 {
+  color: #666666;
+}
+
+.color-999 {
+  color: #999999;
+}
+
+.color-ccc {
+  color: #cccccc;
+}
 
 .bg-white {
-    background-color: white;
+  background-color: white;
 }
 
 .vh-100 {
@@ -40,7 +56,7 @@ ion-select {
 }
 
 .rounded {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 label.required {
@@ -82,6 +98,7 @@ label.required {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
   }
+
   &__body {
     // padding-top: 1rem;
     padding-bottom: 1rem;
@@ -96,12 +113,13 @@ label.required {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    > * {
+
+    >* {
       flex: 1;
-      
+
     }
 
-    
+
   }
 
   &__button {
@@ -122,10 +140,12 @@ label.required {
     &.confirm {
       color: var(--ion-color-primary);
     }
+
     &.cancel {
       color: #999999;
     }
   }
+
   &__tag {
     position: absolute;
     top: .75rem;
@@ -139,15 +159,16 @@ label.required {
 
     &.host {
 
-    background-color: #F99C33;
+      background-color: #F99C33;
     }
+
     &.participate {
 
-    background-color: #1AB71B;
+      background-color: #1AB71B;
     }
   }
 
-  
+
 
   ._title {
     display: block;
@@ -184,11 +205,11 @@ label.required {
   background-repeat: no-repeat;
   line-height: 1;
 
-  > label {
+  >label {
     color: #666666;
   }
 
-  > span:not(.app-select-placeholder) {
+  >span:not(.app-select-placeholder) {
     color: #333333;
     text-align: right;
     height: 2em;
@@ -205,37 +226,40 @@ label.required {
     --padding-top: 0px;
     --padding-bottom: 0px;
     --padding-end: 0px;
-    
+
   }
 }
+
 .select-icon {
-  display: none!important;
+  display: none !important;
 }
 
 .Home {
-    .hello {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 72px;
-        background-color: var(--ion-color-primary);
-    }
-    .status-select-button {
-        --padding-start: 0;
-        --padding-end: 5px;
-    }
-    .contactUs {
-      margin: 25px auto 35px;
-      padding-left: 34px;
-      height: 23px;
-      width: 102px;
-      font-size: 14px;
-      background-image: url('/images/icon_call@2x.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: left center  ;
-    }
+  .hello {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 72px;
+    background-color: var(--ion-color-primary);
+  }
+
+  .status-select-button {
+    --padding-start: 0;
+    --padding-end: 5px;
+  }
+
+  .contactUs {
+    margin: 25px auto 35px;
+    padding-left: 34px;
+    height: 23px;
+    width: 102px;
+    font-size: 14px;
+    background-image: url('/images/icon_call@2x.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+  }
 }
 
 .Profile {
@@ -243,92 +267,99 @@ label.required {
 }
 
 .Butler {
-    .icon {
-        display: inline-block;
-        width: 28px;
-        height: 28px;
-        // background-color: lightgrey;
-        background-image: url('/images/icon_scheduled@2x.png');
-        background-size: cover;
-    }
+  .icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    // background-color: lightgrey;
+    background-image: url('/images/icon_scheduled@2x.png');
+    background-size: cover;
+  }
 
-    .title {
-        line-height: 1;
-        font-size: 14px;
-    }
-    
-    .app-card {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      margin: 0;
-      background-color: white;
-        // flex: 0 0 calc(50% - 4px);
-    }
+  .title {
+    line-height: 1;
+    font-size: 14px;
+  }
+
+  .app-card {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    background-color: white;
+    // flex: 0 0 calc(50% - 4px);
+  }
 }
 
 .Schedule {
-    .app-card {
-      min-height: 240px;
+  .app-card {
+    min-height: 240px;
+  }
+
+  .meetingType {
+    flex: 0 0 56px;
+  }
+
+  .meetingViewButton {
+    width: 58px;
+    text-align: right;
+  }
+
+  .item {
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0 !important;
     }
 
-    .meetingType {
-        flex: 0 0 56px;
+
+    ion-button {
+      height: 24px;
+      --border-radius: 24px;
     }
 
-    .meetingViewButton {
-        width: 58px;
-        text-align: right;
+    ion-avatar {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
     }
 
-    .item {
-        width: 100%;
-        &:last-child {
-            margin-bottom: 0!important;
-        }
-
-        
-        ion-button {
-            height: 24px;
-            --border-radius: 24px;
-        }
-
-        ion-avatar {
-            width: 16px;
-            height: 16px;
-            margin-right: 5px;
-        }
-        
-    }
+  }
 }
 
 .AvailableRoom {
   .app-card {
     padding: .75rem;
+
     .left {
       flex: 0 0 28%;
       align-self: stretch;
       background-color: #f2f2f2;
     }
+
     .right {
       flex: 1;
       margin-left: .75rem;
       overflow: hidden;
     }
+
     .people-num {
       flex: 0 0 40px;
       text-align: right;
       color: var(--ion-color-primary);
     }
+
     .title {
       font-size: 16px;
       font-weight: bold;
     }
+
     .app-button {
       flex: 1;
       height: 2.4em;
       margin: 0;
     }
+
     .devices {
       ion-chip {
         border-radius: 8px;
@@ -354,6 +385,7 @@ label.required {
 .RoomDetailItem {
   display: flex;
   align-items: center;
+
   .icon {
     width: 1.5rem;
     height: 1.5rem;
@@ -367,15 +399,17 @@ label.required {
   .ul {
     padding: 0;
     margin: 0;
+
     li {
       display: flex;
       align-items: center;
       font-size: 14px;
+
       label {
         flex: 0 0 66px;
       }
 
-      label + span {
+      label+span {
         flex: 1;
         color: #666666;
         white-space: nowrap;
@@ -384,7 +418,7 @@ label.required {
       }
 
       &:not(:last-child) {
-        
+
         margin-bottom: 1rem;
       }
 
@@ -401,9 +435,11 @@ label.required {
   ion-card {
     --background: #001729;
   }
+
   .card {
     background-color: #001729;
   }
+
   .hello {
     background-color: #000b15;
   }
@@ -471,4 +507,3 @@ label.required {
     transform: translateY(20px);
   }
 }
-

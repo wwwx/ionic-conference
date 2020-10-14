@@ -1,5 +1,5 @@
-import Axios from "axios"
+import Axios from 'axios';
 
-export const fetcher =(url: string) => {
-    return Axios.get(url)
-}
+export const fetcher = (url: string) => {
+  return Axios.get(url);
+};

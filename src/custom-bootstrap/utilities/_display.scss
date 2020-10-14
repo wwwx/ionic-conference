@@ -1,3 +1,5 @@
 @each $value in $displays {
-    .d-#{$value} { display: $value !important; }
+  .d-#{$value} {
+    display: $value !important;
+  }
 }

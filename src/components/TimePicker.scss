@@ -1,92 +1,95 @@
 $button-height: 44px;
 
 .conference-picklist {
-    display: flex;
-    flex-wrap: wrap;
-    .item {
-        flex: 0 0 25%;
-        box-sizing: border-box;
-        overflow: hidden;
-        text-align: center;
-        margin-bottom: .5rem;
-        span {
-            font-size: 12px;
-            // border: 1px solid #dddddd;
-            margin: 1px .25rem;
-            padding: 8px 6px;
-            display: inline-block;
-            user-select: none;
-            -webkit-user-select: none;
-            border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
 
-        }
+  .item {
+    flex: 0 0 25%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: .5rem;
 
-
-        &.active span {
-            background-color: var(--ion-color-primary);
-            color: white;
-        }
+    span {
+      font-size: 12px;
+      // border: 1px solid #dddddd;
+      margin: 1px .25rem;
+      padding: 8px 6px;
+      display: inline-block;
+      user-select: none;
+      -webkit-user-select: none;
+      border-radius: 4px;
 
     }
+
+
+    &.active span {
+      background-color: var(--ion-color-primary);
+      color: white;
+    }
+
+  }
 }
 
 .btn-conference-confirm {
+  height: $button-height;
+  border-radius: $button-height / 2;
+  border: 1px solid var(--ion-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0 2px 2rem;
+  overflow: hidden;
+
+  * {
+    line-height: 1;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .title {
+    color: var(--ion-color-primary);
+    font-size: 14px;
+  }
+
+  button {
+    background-color: var(--ion-color-primary);
+    color: white;
     height: $button-height;
-    border-radius: $button-height / 2;
-    border: 1px solid var(--ion-color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2px 0 2px 2rem;
-    overflow: hidden;
-
-    * {
-        line-height: 1;
-    }
-
-    .label {
-        font-size: 12px;
-    }
-
-    .title {
-        color: var(--ion-color-primary);
-        font-size: 14px;
-    }
-
-    button {
-        background-color: var(--ion-color-primary);
-        color: white;
-        height: $button-height;
-        border-top-left-radius: $button-height / 2;
-        border-bottom-left-radius: $button-height / 2;
-        padding: 0 2rem;
-        min-width: 100px;
-        margin: 0 -2px;
-        font-size: 16px;
-        outline: none;
-    }
+    border-top-left-radius: $button-height / 2;
+    border-bottom-left-radius: $button-height / 2;
+    padding: 0 2rem;
+    min-width: 100px;
+    margin: 0 -2px;
+    font-size: 16px;
+    outline: none;
+  }
 }
 
 @media (max-width: 400px) {
-    .conference-picklist {
+  .conference-picklist {
 
-        margin-right: -.5rem;
-        margin-left: -.5rem;
-        .item span {
-            font-size: 11px;
-        }
+    margin-right: -.5rem;
+    margin-left: -.5rem;
+
+    .item span {
+      font-size: 11px;
     }
+  }
 }
 
 @media (max-width: 359px) {
-    .conference-picklist .item {
-        flex: 0 0 33.33%!important;
-    }
+  .conference-picklist .item {
+    flex: 0 0 33.33% !important;
+  }
 
-    .btn-conference-confirm {
-        button {
-            padding: 0 1.5rem;
-            min-width: 64px;
-        }
+  .btn-conference-confirm {
+    button {
+      padding: 0 1.5rem;
+      min-width: 64px;
     }
+  }
 }

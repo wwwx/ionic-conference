@@ -1,5 +1,5 @@
 @for $size from 10 through 24 {
-    .font-#{$size} {
-        font-size: #{$size}px  !important;
-    }
+  .font-#{$size} {
+    font-size: #{$size}px !important;
+  }
 }

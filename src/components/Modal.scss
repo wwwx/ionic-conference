@@ -1,73 +1,72 @@
-
 .app-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1040;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(0,0,0);
-    opacity: .5;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  opacity: .5;
+}
+
 
 .app-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+
+
+  .modal {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: #333333;
+    border-radius: 8px;
+    width: calc(100% - 2rem);
+    max-width: 400px;
+    // padding: 1rem;
+    margin: 0 auto;
     outline: 0;
-  
-  
-    .modal {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      color: #333333;
-      border-radius: 8px;
-      width: calc(100% - 2rem);
-      max-width: 400px;
-      // padding: 1rem;
-      margin: 0 auto;
-      outline: 0;
-    }
-  
-    .modal-header {
-      text-align: center;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 1rem 2.5rem;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-  
-    .modal-body {
-      padding: 0 1rem 1rem;
-    }
-  
-    .modal-footer {
-      padding: 2px 4px;
-      height: 50px;
-      display: flex;
-      justify-content: flex-end;
-    }
-  
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 1rem;
-      height: 1rem;
-      background-image: url('/images/close.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-    }
   }
+
+  .modal-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 1rem 2.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .modal-body {
+    padding: 0 1rem 1rem;
+  }
+
+  .modal-footer {
+    padding: 2px 4px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 1rem;
+    height: 1rem;
+    background-image: url('/images/close.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}

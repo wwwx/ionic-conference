@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './mock'
+import './mock';
 import { setupConfig } from '@ionic/react';
 
 setupConfig({
-    rippleEffect: true,
-    mode: 'ios',
+  rippleEffect: true,
+  mode: 'ios',
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));

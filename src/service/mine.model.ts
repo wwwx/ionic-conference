@@ -1,13 +1,12 @@
-
 export interface MineRouteParams {
-    type: string;
+  type: string;
 }
 
 export interface MineCardParams {
-    type: number;
-    title: string;
-    address: string;
-    datetime: string;
-    host: string;
-    isHost: boolean;
+  type: number;
+  title: string;
+  address: string;
+  datetime: string;
+  host: string;
+  isHost: boolean;
 }

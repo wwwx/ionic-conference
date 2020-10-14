@@ -1,15 +1,17 @@
 .Empty {
-    text-align: center;
-    .empty-bg {
-        width: 64vw;
-        height: 64vw;
-        margin: 0 auto;
-        background-image: url('/images/icon_empty@2x.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
-    .empty-message {
-        color: #AAAAAA;
-    }
+  text-align: center;
+
+  .empty-bg {
+    width: 64vw;
+    height: 64vw;
+    margin: 0 auto;
+    background-image: url('/images/icon_empty@2x.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .empty-message {
+    color: #AAAAAA;
+  }
 }

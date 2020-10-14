@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(1),
       width: 300,
     },
-  }),
+  })
 );
 
 export default function DatePickers() {

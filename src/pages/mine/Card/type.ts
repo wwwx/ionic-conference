@@ -1,21 +1,20 @@
-import { MineCardParams } from '../../../service/mine.model'
+import { MineCardParams } from '../../../service/mine.model';
 
 export interface CardProps {
-    onConfirm?: Function;
-    onCancel?: Function;
-    confirmButtonText?: string;
-    cancelButtonText?: string;
-    renderHead?: JSX.Element;
-    renderBody?: JSX.Element;
-    renderButtons?: JSX.Element;
-    typeName?: string;
-    isHost?: boolean;
+  onConfirm?: Function;
+  onCancel?: Function;
+  confirmButtonText?: string;
+  cancelButtonText?: string;
+  renderHead?: JSX.Element;
+  renderBody?: JSX.Element;
+  renderButtons?: JSX.Element;
+  typeName?: string;
+  isHost?: boolean;
 }
 
 export interface ICardProps {
-    
-    data: MineCardParams;
-    typeName?: string;
-    onConfirm?: Function;
-    onCancel?: Function;
+  data: MineCardParams;
+  typeName?: string;
+  onConfirm?: Function;
+  onCancel?: Function;
 }
