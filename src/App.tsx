@@ -24,7 +24,6 @@ const Reservation = lazy(() => import('./pages/reservation/Reservation'));
 const AvailableRoom = lazy(() => import('./pages/room/AvailableRoom'));
 const RoomDetail = lazy(() => import('./pages/room/RoomDetail'));
 const Mine = lazy(() => import('./pages/mine/Mine'));
-const TestDatePicker = lazy(() => import('./components/TestDatePicker'));
 
 interface Page {
   pageLink: string;
@@ -67,11 +66,6 @@ const pages: Page[] = [
     pageLink: '/loading',
     view: Loading,
     displayName: 'Loading',
-  },
-  {
-    pageLink: '/picker',
-    view: TestDatePicker,
-    displayName: 'TestDatePicker',
   },
 ];
 
