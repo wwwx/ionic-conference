@@ -1,6 +1,7 @@
-import React from 'react';
-import { ICardProps } from './type';
-import Card from './Card';
+import React from 'react'
+
+import Card from './Card'
+import { ICardProps } from './type'
 
 const InviteCard: React.FC<ICardProps> = ({ data, onConfirm, onCancel }) => {
   return (
@@ -14,7 +15,7 @@ const InviteCard: React.FC<ICardProps> = ({ data, onConfirm, onCancel }) => {
           </li>
           <li>
             <label>时间</label>
-            <span className="datetime">{data.datetime}</span>
+            <span className="emphaise">{data.datetime}</span>
           </li>
           <li>
             <label>主持人</label>

@@ -1,0 +1,52 @@
+.Staff {
+  display: flex;
+  margin-bottom: 12px;
+
+  $avatar-size: 42px;
+
+  .avatar {
+    flex: 0 0 $avatar-size;
+    width: $avatar-size;
+    height: $avatar-size;
+    background-color: #cccccc;
+    border-radius: 2px;
+    margin-right: 12px;
+  }
+
+  .info {
+    flex: 1 1 0%;
+
+    .top {
+      display: flex;
+      margin-bottom: 5px;
+      .name {
+        font-weight: bold;
+        margin-right: 12px;
+        color: #333333;
+      }
+      .role {
+        border-radius: 2px;
+        padding: 1px .75rem;
+        color: white;
+        font-size: 12px;
+
+        &.host {
+          background-color: var(--ion-color-warning);
+        }
+
+        &.recorder {
+          background-color: var(--ion-color-primary);
+        }
+      }
+
+    }
+    .dept {
+      color: #676767;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
+      
+    }
+  }
+}

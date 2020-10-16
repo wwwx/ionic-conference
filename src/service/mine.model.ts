@@ -9,4 +9,5 @@ export interface MineCardParams {
   datetime: string;
   host: string;
   isHost: boolean;
+  content: string;
 }

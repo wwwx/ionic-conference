@@ -1,6 +1,7 @@
-import React from 'react';
-import { ICardProps } from './type';
-import Card from './Card';
+import React from 'react'
+
+import Card from './Card'
+import { ICardProps } from './type'
 
 const ConferenceFinishedCard: React.FC<ICardProps> = ({
   data,
@@ -19,7 +20,7 @@ const ConferenceFinishedCard: React.FC<ICardProps> = ({
           </li>
           <li>
             <label>时间</label>
-            <span className="datetime">{data.datetime}</span>
+            <span className="emphaise">{data.datetime}</span>
           </li>
           <li>
             <label>地点</label>

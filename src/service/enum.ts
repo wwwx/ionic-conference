@@ -3,3 +3,7 @@ export enum ConferenceType {
   PROCESSING,
   FINISHED,
 }
+export enum Role {
+  HOST = 'host',
+  RECORDED = 'recorder'
+}

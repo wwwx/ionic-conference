@@ -1,19 +1,19 @@
 import React from 'react'
 
+import Staff from '../../../components/Staff'
 import Card from './Card'
+import { Role } from '../../../service/enum'
 import { ICardProps } from './type'
 
-const ConferenceHasNotStartCard: React.FC<ICardProps> = ({
+const ConferenceProcessingCard: React.FC<ICardProps> = ({
   data,
   typeName,
   onConfirm,
-  onCancel,
 }) => {
   return (
     <Card
       typeName={typeName}
       isHost={data.isHost}
-      renderHead={<span className="_title">{data.title}</span>}
       renderBody={
         <ul className="ul">
           <li>
@@ -25,28 +25,30 @@ const ConferenceHasNotStartCard: React.FC<ICardProps> = ({
             <span className="emphaise">{data.datetime}</span>
           </li>
           <li>
-            <label>主持人</label>
-            <span>{data.host}</span>
+            <label>会议内容</label>
+            <span className="line-clamp">{data.content}</span>
+          </li>
+          <li>
+            <label>会议文件</label>
+            <span className="emphaise">附件1</span>
+          </li>
+          <li>
+            <label>会议人员</label>
+            <span>
+              <Staff role={Role.HOST} />
+              <Staff role={Role.RECORDED} />
+            </span>
           </li>
         </ul>
       }
       renderButtons={
         <>
-          {onCancel && (
-            <button
-              className="app-card__button cancel"
-              onClick={() => onCancel()}
-            >
-              <span className=" border-left">取消预订</span>
-            </button>
-          )}
-
           {onConfirm && (
             <button
               className="app-card__button confirm"
               onClick={() => onConfirm()}
             >
-              <span>查看详情</span>
+              <span>查看会议纪要</span>
             </button>
           )}
         </>
@@ -55,4 +57,4 @@ const ConferenceHasNotStartCard: React.FC<ICardProps> = ({
   );
 };
 
-export default ConferenceHasNotStartCard;
+export default ConferenceProcessingCard;
