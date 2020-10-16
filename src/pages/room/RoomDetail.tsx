@@ -1,9 +1,10 @@
-import { IonContent, IonPage, IonSlide, IonSlides } from '@ionic/react';
-import React, { useState } from 'react';
-import AppHeader from '../../components/AppHeader';
-import { toDateLocaleString } from '../../components/Calendar';
-import { TimeList } from '../../components/TimePicker';
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
+import React, { useState } from 'react'
+import { IonContent, IonPage, IonSlide, IonSlides } from '@ionic/react'
+
+import AppHeader from '../../components/AppHeader'
+import { toDateLocaleString } from '../../components/Calendar'
+import { TimeList } from '../../components/TimePicker'
 
 type RoomDetailItemProps = {
   content: string;

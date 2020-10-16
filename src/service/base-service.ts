@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios from 'axios'
+
 const baseConfig = {
   timeout: 10e3,
   baseURL: '/',

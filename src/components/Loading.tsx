@@ -1,6 +1,7 @@
-import { IonContent, IonPage, IonSpinner } from '@ionic/react';
-import React from 'react';
-import './Loading.scss';
+import './Loading.scss'
+
+import React from 'react'
+import { IonContent, IonPage, IonSpinner } from '@ionic/react'
 
 const Loading: React.FC = () => {
   return (

@@ -1,16 +1,9 @@
-import React, { useMemo } from 'react';
-import {
-  IonCard,
-  IonCardContent,
-  IonAvatar,
-  IonText,
-  IonButton,
-  IonSelect,
-  IonSelectOption,
-} from '@ionic/react';
-import useSWR from 'swr';
-import fetcher from '../../service/base-service';
-import { Link } from 'react-router-dom';
+import useSWR from 'swr'
+import React, { useMemo } from 'react'
+import { IonAvatar, IonButton, IonCard, IonCardContent, IonSelect, IonSelectOption, IonText } from '@ionic/react'
+import { Link } from 'react-router-dom'
+
+import fetcher from '../../service/base-service'
 
 function ProfileContent() {
   const trail = useMemo(() => {

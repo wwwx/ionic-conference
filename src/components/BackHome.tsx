@@ -1,6 +1,7 @@
-import React from 'react';
-import { useHistory } from 'react-router';
-import './BackHome.scss';
+import './BackHome.scss'
+
+import React from 'react'
+import { useHistory } from 'react-router'
 
 const BackHome: React.FC = () => {
   const history = useHistory();

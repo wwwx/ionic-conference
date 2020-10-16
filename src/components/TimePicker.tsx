@@ -1,7 +1,9 @@
-import Modal from './Modal';
-import './TimePicker.scss';
-import React, { useCallback, useEffect, useState } from 'react';
-import classnames from 'classnames';
+import './TimePicker.scss'
+
+import classnames from 'classnames'
+import React, { useCallback, useEffect, useState } from 'react'
+
+import Modal from './Modal'
 
 export const picklist = [
   '09:00~10:30',

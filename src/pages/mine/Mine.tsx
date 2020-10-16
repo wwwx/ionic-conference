@@ -1,17 +1,11 @@
-import {
-  IonContent,
-  IonLabel,
-  IonPage,
-  IonSegment,
-  IonSegmentButton,
-  IonToolbar,
-} from '@ionic/react';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import AppHeader from '../../components/AppHeader';
-import Conference from './Conference';
-import Invite from './Invite';
-import { MineRouteParams } from '../../service/mine.model';
+import React, { useEffect, useState } from 'react'
+import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react'
+import { useParams } from 'react-router'
+
+import AppHeader from '../../components/AppHeader'
+import Conference from './Conference'
+import Invite from './Invite'
+import { MineRouteParams } from '../../service/mine.model'
 
 const Mine: React.FC = (props) => {
   const tabsConfig = [

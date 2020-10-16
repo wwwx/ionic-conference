@@ -1,5 +1,6 @@
-import React from 'react';
-import './Common.scss';
+import './Common.scss'
+
+import React from 'react'
 
 function Loading() {
   return <div>Loading...</div>;

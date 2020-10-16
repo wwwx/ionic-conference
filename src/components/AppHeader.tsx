@@ -1,11 +1,5 @@
-import {
-  IonBackButton,
-  IonButtons,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
-import React from 'react';
+import React from 'react'
+import { IonBackButton, IonButtons, IonHeader, IonTitle, IonToolbar } from '@ionic/react'
 
 type AppHeaderProps = {
   title?: string;

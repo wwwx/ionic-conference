@@ -1,8 +1,9 @@
-import { IonAvatar, IonButton } from '@ionic/react';
-import React from 'react';
-import useSWR from 'swr';
-import { Empty, ErrorMessage, Loading } from '../../components/Common';
-import fetcher from '../../service/base-service';
+import React from 'react'
+import useSWR from 'swr'
+import { IonAvatar, IonButton } from '@ionic/react'
+
+import fetcher from '../../service/base-service'
+import { Empty, ErrorMessage, Loading } from '../../components/Common'
 
 type ScheduleParams = {
   status: number;

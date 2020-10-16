@@ -1,6 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
-import { CardProps } from './type';
+import classnames from 'classnames'
+import React from 'react'
+
+import { CardProps } from './type'
 
 const Card: React.FC<CardProps> = ({
   renderHead,

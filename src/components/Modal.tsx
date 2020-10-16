@@ -1,6 +1,7 @@
-import React from 'react';
-import { createPortal } from 'react-dom';
-import './Modal.scss';
+import './Modal.scss'
+
+import React from 'react'
+import { createPortal } from 'react-dom'
 
 type ModalProps = {
   visible: boolean;

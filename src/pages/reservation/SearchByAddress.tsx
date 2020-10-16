@@ -1,7 +1,8 @@
-import { IonButton, IonSelect, IonSelectOption } from '@ionic/react';
-import React, { useCallback, useState } from 'react';
-import { DatePicker } from '../../components/Calendar';
-import TimePicker from '../../components/TimePicker';
+import React, { useCallback, useState } from 'react'
+import { IonButton, IonSelect, IonSelectOption } from '@ionic/react'
+
+import TimePicker from '../../components/TimePicker'
+import { DatePicker } from '../../components/Calendar'
 
 const SearchByAddress: React.FC = () => {
   const [address, setAddress] = useState<string>('');

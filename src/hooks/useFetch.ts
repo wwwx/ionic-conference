@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import http from '../service/base-service';
+import { useEffect, useState } from 'react'
+
+import http from '../service/base-service'
 
 const useFetch = <T>(url: string, initialData: T) => {
   const [data, setData] = useState(initialData);

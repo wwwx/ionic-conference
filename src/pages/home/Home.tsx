@@ -1,12 +1,8 @@
-import React, { lazy, Suspense } from 'react';
-import {
-  IonContent,
-  IonPage,
-  IonItem,
-  IonLabel,
-  IonToggle,
-} from '@ionic/react';
-import AppHeader from '../../components/AppHeader';
+import React, { lazy, Suspense } from 'react'
+import { IonContent, IonItem, IonLabel, IonPage, IonToggle } from '@ionic/react'
+
+import AppHeader from '../../components/AppHeader'
+
 const Profile = lazy(() => import('./Profile'));
 const Butler = lazy(() => import('./Butler'));
 const Schedule = lazy(() => import('./Schedule'));

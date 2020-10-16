@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { IonContent, IonPage } from '@ionic/react';
-import Calendar, { toDateLocaleString } from '../../components/Calendar';
-import AppHeader from '../../components/AppHeader';
-import ScheduleList from './ScheduleList';
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
+import React, { useState } from 'react'
+import { IonContent, IonPage } from '@ionic/react'
+
+import AppHeader from '../../components/AppHeader'
+import ScheduleList from './ScheduleList'
+import Calendar, { toDateLocaleString } from '../../components/Calendar'
 
 const MySchedule: React.FC = () => {
   const DATE_FORMAT = 'YYYY/MM/DD';

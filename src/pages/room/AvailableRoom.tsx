@@ -1,7 +1,8 @@
-import { IonButton, IonChip, IonContent, IonPage } from '@ionic/react';
-import React from 'react';
-import { useHistory } from 'react-router';
-import AppHeader from '../../components/AppHeader';
+import React from 'react'
+import { IonButton, IonChip, IonContent, IonPage } from '@ionic/react'
+import { useHistory } from 'react-router'
+
+import AppHeader from '../../components/AppHeader'
 
 const AvailableRoom: React.FC = () => {
   return (

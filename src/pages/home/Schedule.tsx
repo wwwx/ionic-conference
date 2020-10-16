@@ -1,7 +1,8 @@
-import React from 'react';
-import ScheduleList from './ScheduleList';
-import { toDateLocaleString } from '../../components/Calendar';
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
+import React from 'react'
+
+import ScheduleList from './ScheduleList'
+import { toDateLocaleString } from '../../components/Calendar'
 
 const Schedule: React.FC = () => {
   const DATE_FORMAT = 'YYYY/MM/DD';

@@ -1,7 +1,9 @@
-import React, { useCallback, useState } from 'react';
-import classnames from 'classnames';
-import './Calendar.scss';
-import Modal from './Modal';
+import './Calendar.scss'
+
+import classnames from 'classnames'
+import React, { useCallback, useState } from 'react'
+
+import Modal from './Modal'
 
 type MyDate = {
   year: number;

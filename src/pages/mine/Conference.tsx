@@ -1,11 +1,12 @@
-import React from 'react';
-import useSWR from 'swr';
-import ConferenceHasNotStartCard from './Card/ConferenceHasNotStartCard';
-import ConferenceFinishedCard from './Card/ConferenceFinishedCard';
-import fetcher from '../../service/base-service';
-import { Empty, ErrorMessage, Loading } from '../../components/Common';
-import { MineCardParams } from '../../service/mine.model';
-import { ConferenceType } from '../../service/enum';
+import React from 'react'
+import useSWR from 'swr'
+
+import fetcher from '../../service/base-service'
+import { ConferenceHasNotStartCard } from './Card/index'
+import { ConferenceFinishedCard } from './Card/index'
+import { Empty, ErrorMessage, Loading } from '../../components/Common'
+import { MineCardParams } from '../../service/mine.model'
+import { ConferenceType } from '../../service/enum'
 
 const Conference: React.FC = () => {
   const { data, error } = useSWR('/api/conference-list', fetcher.get);

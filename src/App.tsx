@@ -1,23 +1,18 @@
-import React, { Suspense, lazy } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import Loading from './components/Loading';
+import '@ionic/react/css/core.css'
+import '@ionic/react/css/normalize.css'
+import '@ionic/react/css/structure.css'
+import '@ionic/react/css/typography.css'
+import './theme/variables.css'
+import './custom-bootstrap/index.scss'
+import './App.scss'
 
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
+import React, { lazy, Suspense } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { IonApp, IonRouterOutlet } from '@ionic/react'
+import { IonReactRouter } from '@ionic/react-router'
 
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
+import Loading from './components/Loading'
 
-/* Theme variables */
-import './theme/variables.css';
-import './custom-bootstrap/index.scss';
-import './App.scss';
-
-/* eslint-disable import/first */
 const Home = lazy(() => import('./pages/home/Home'));
 const MySchedule = lazy(() => import('./pages/home/MySchedule'));
 const Reservation = lazy(() => import('./pages/reservation/Reservation'));
