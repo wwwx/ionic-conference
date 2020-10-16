@@ -1,5 +1,6 @@
 import React from 'react'
 import useSWR from 'swr'
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 
 import fetcher from '../../service/base-service'
 import { ConferenceHasNotStartCard } from './Card/index'
@@ -7,6 +8,8 @@ import { ConferenceFinishedCard } from './Card/index'
 import { Empty, ErrorMessage, Loading } from '../../components/Common'
 import { MineCardParams } from '../../service/mine.model'
 import { ConferenceType } from '../../service/enum'
+
+// import 'react-tabs/style/react-tabs.css'
 
 const Conference: React.FC = () => {
   const { data, error } = useSWR('/api/conference-list', fetcher.get);
@@ -31,42 +34,63 @@ const Conference: React.FC = () => {
     console.log('cancel');
   }
 
-  return list.map((item: MineCardParams, i: number) => {
-    switch (item.type) {
-      case ConferenceType.FINISHED:
-        return (
-          <ConferenceFinishedCard
-            data={item}
-            key={i}
-            typeName="主持"
-            onConfirm={handConfirm}
-          />
-        );
-      case ConferenceType.HAS_NOT_START:
-        if (item.isHost) {
+  const finishedData = list.filter(
+    (item: any) => item.type === ConferenceType.FINISHED
+  );
+
+  const hasNotStartData = list.filter(
+    (item: any) => item.type === ConferenceType.HAS_NOT_START
+  );
+
+  return (
+    <Tabs className="Mine-Conference">
+      <TabList>
+        <Tab>未开始</Tab>
+        <Tab>进行中</Tab>
+        <Tab>已结束</Tab>
+      </TabList>
+      <TabPanel>
+        {hasNotStartData.map((item: MineCardParams, i: number) => {
+          const typeName = item.isHost ? '主持' : '参与';
+
+          let actionProps: any = {
+            onConfirm: handConfirm,
+          };
+
+          if (!item.isHost) {
+            actionProps = {
+              ...actionProps,
+              onCancel: handleCancel,
+            };
+          }
           return (
             <ConferenceHasNotStartCard
               data={item}
               key={i}
-              typeName="主持"
-              onConfirm={handConfirm}
-              onCancel={handleCancel}
+              typeName={typeName}
+              {...actionProps}
             />
           );
-        } else {
+        })}
+      </TabPanel>
+      <TabPanel>
+        <div className="app-card">.....</div>
+      </TabPanel>
+      <TabPanel>
+        {finishedData.map((item: MineCardParams, i: number) => {
+          const typeName = item.isHost ? '主持' : '参与';
           return (
-            <ConferenceHasNotStartCard
+            <ConferenceFinishedCard
               data={item}
               key={i}
-              typeName="参与"
+              typeName={typeName}
               onConfirm={handConfirm}
             />
           );
-        }
-      case 3:
-    }
-    return null;
-  });
+        })}
+      </TabPanel>
+    </Tabs>
+  );
 };
 
 export default Conference;

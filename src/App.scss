@@ -148,7 +148,7 @@ label.required {
 
   &__tag {
     position: absolute;
-    top: .75rem;
+    top: 1rem;
     right: 0;
     padding: 4px 1rem;
     border-top-left-radius: 24px;
@@ -395,38 +395,55 @@ label.required {
   }
 }
 
-.Card {
-  .ul {
+
+.Mine-Conference {
+  .react-tabs__tab-list {
+    margin: .625rem 1rem 0;
     padding: 0;
-    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .react-tabs__tab {
+    flex: 1 1 0%;
+    display: inline-block;
+    background: #fff;
+    color: #666666;
+    border-radius: 4px;
+    position: relative;
+    list-style: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    text-align: center;
 
-    li {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
+    &:not(:last-child) {
+      margin-right: .5rem;
+    }
 
-      label {
-        flex: 0 0 66px;
-      }
-
-      label+span {
-        flex: 1;
-        color: #666666;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      &:not(:last-child) {
-
-        margin-bottom: 1rem;
-      }
-
-      .datetime {
-        color: var(--ion-color-primary)
-      }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200%;
+      height: 200%;
+      
+      border-radius: 8px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: white;
+      
+      transform: scale(.5);
+      transform-origin: right top;
     }
   }
+  .react-tabs__tab--selected {
+    color: var(--ion-color-primary);
+
+    &::before {
+      border-color: var(--ion-color-primary);
+    }
+  }
+
 }
 
 
