@@ -99,7 +99,7 @@ const RecordProcessingCard: React.FC<ICardProps> = ({
               className="app-card__button confirm"
               onClick={() => onConfirm()}
             >
-              <span>查看会议纪要</span>
+              <span>查看详情</span>
             </button>
           )}
         </>

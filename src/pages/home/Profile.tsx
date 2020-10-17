@@ -68,7 +68,7 @@ function ProfileContent() {
           <p className="color-666 font-12 mt-1">会议邀请</p>
         </Link>
 
-        <Link className="fadeInUp" style={trail[4]} to="/">
+        <Link className="fadeInUp" style={trail[4]} to="/record/publish">
           <IonText color="primary" className="font-21">
             {profile.summaryDraftNum}
           </IonText>

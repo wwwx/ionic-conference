@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
 import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react'
 import { useParams } from 'react-router'
 
 import AppHeader from '../../components/AppHeader'
-import RecordList from './RecordList'
-import RecordPublish from './RecordPublish'
 import { MineRouteParams } from '../../service/mine.model'
+
+const RecordList = lazy(() => import('./RecordList'));
+const RecordPublish = lazy(() => import('./RecordPublish'));
 
 const Mine: React.FC = (props) => {
   const tabsConfig = [
     {
       label: '发布纪要',
       value: 'publish',
+      view: RecordPublish,
     },
     {
       label: '查看纪要',
       value: 'list',
+      view: RecordList,
     },
   ];
   // eslint-disable-next-line
@@ -47,8 +50,11 @@ const Mine: React.FC = (props) => {
             ))}
           </IonSegment>
         </IonToolbar>
-        {active === 'publish' && <RecordPublish />}
-        {active === 'list' && <RecordList />}
+        <Suspense fallback={<div />}>
+          {tabsConfig.map((tab, i) => {
+            return active === tab.value ? <tab.view key={i} /> : null;
+          })}
+        </Suspense>
       </IonContent>
     </IonPage>
   );

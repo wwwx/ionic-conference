@@ -11,7 +11,7 @@ const Schedule: React.FC = () => {
   return (
     <React.Fragment>
       <div className="app-block-title fadeInUp">
-        <span className="color-111 font-weight-bold">会议日程</span>
+        <span className="color-111 font-weight-bold">今日日程</span>
         <span className="color-666 font-14">{toDateLocaleString(date)}</span>
       </div>
       <div className="app-card">
