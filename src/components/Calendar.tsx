@@ -34,11 +34,13 @@ const toDateLocaleString = (value: number) => {
 };
 
 type CalendarProps = {
+  readonly?: boolean;
   value?: number;
   onChange?: (value: number) => void;
 };
 
 const Calendar: React.FC<CalendarProps> = ({
+  readonly = false,
   value = Date.now(),
   onChange = (value: number) => {},
 }) => {
@@ -70,13 +72,15 @@ const Calendar: React.FC<CalendarProps> = ({
 
   const handleDayClick = useCallback(
     (date: Date) => {
+      if (readonly) return;
       setDate(date);
       onChange(date.getTime());
     },
-    [onChange]
+    [onChange, readonly]
   );
 
   const handleMonthPrevClick = useCallback(() => {
+    if (readonly) return;
     setCurrentMonthFirthDay((value) => {
       let { year, month } = getMyDate(value.getTime());
       if (month === 0) {
@@ -87,9 +91,10 @@ const Calendar: React.FC<CalendarProps> = ({
       }
       return new Date(year, month, 1);
     });
-  }, []);
+  }, [readonly]);
 
   const handleMonthNextClick = useCallback(() => {
+    if (readonly) return;
     setCurrentMonthFirthDay((value) => {
       let { year, month } = getMyDate(value.getTime());
       if (month === 11) {
@@ -100,7 +105,7 @@ const Calendar: React.FC<CalendarProps> = ({
       }
       return new Date(year, month, 1);
     });
-  }, []);
+  }, [readonly]);
 
   return (
     <div className="Calendar">

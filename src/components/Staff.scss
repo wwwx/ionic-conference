@@ -3,14 +3,25 @@
   margin-bottom: 12px;
 
   $avatar-size: 42px;
+  $margin-right: 12px;
+
+
+  &.inline {
+    display: inline-block;
+    // width: $avatar-size + $margin-right;
+    height: $avatar-size;
+  }
 
   .avatar {
     flex: 0 0 $avatar-size;
     width: $avatar-size;
     height: $avatar-size;
     background-color: #cccccc;
+    background-image: url('/images/avatar.jpeg');
+    background-size: cover;
+    background-position: center;
     border-radius: 2px;
-    margin-right: 12px;
+    margin-right: $margin-right;
   }
 
   .info {
@@ -19,14 +30,16 @@
     .top {
       display: flex;
       margin-bottom: 5px;
+
       .name {
         font-weight: bold;
-        margin-right: 12px;
+        margin-right: $margin-right;
         color: #333333;
       }
+
       .role {
         border-radius: 2px;
-        padding: 1px .75rem;
+        padding: 1px 0.5rem;
         color: white;
         font-size: 12px;
 
@@ -38,15 +51,14 @@
           background-color: var(--ion-color-primary);
         }
       }
-
     }
+
     .dept {
       color: #676767;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       font-size: 12px;
-      
     }
   }
 }

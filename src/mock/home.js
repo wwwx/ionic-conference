@@ -1,5 +1,5 @@
-import Mock from 'mockjs';
 import dayjs from 'dayjs';
+import Mock from 'mockjs';
 
 Mock.setup({
   timeout: 300,
@@ -145,6 +145,56 @@ Mock.mock(new RegExp('/api/conference-list.*'), 'get', function (options) {
       isHost: true,
       content:
         '系统测评上线风暴沟通会系统测评上线，风暴沟通会议系统上线，风暴沟通会议系统上线，风暴沟通会议系统上线，风暴沟通会议系统上线，风暴沟通会议系统上线',
+      members: [
+        {
+          role: 'host',
+          name: '张晓明',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+        {
+          role: 'recorder',
+          name: 'Jerry',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+        {
+          role: '',
+          name: '889992',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+        {
+          role: '',
+          name: '22333',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+        {
+          role: '',
+          name: '222222',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+        {
+          role: '',
+          name: '222222',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+        {
+          role: '',
+          name: '222222',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+        {
+          role: '',
+          name: '222222',
+          dept: '战略与人力资源中心',
+          email: 'ssh3333@jiayinfintech.net',
+        },
+      ],
     },
   ];
 });

@@ -6,7 +6,8 @@
 ### Bug
 
 - 点击返回按钮，返回到上一页时 页面的返回按钮丢失 (IonBackButton 添加 defaultHref 属性)
-- package.json 无法显示新增的npm包（dayjs react-tabs @types/react-tabs）
+- package.json 无法显示新增的 npm 包（dayjs react-tabs @types/react-tabs）
+- 会议室预定，选择日期时间不能小于当前时间
 
 ### Improve
 

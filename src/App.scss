@@ -59,6 +59,11 @@ ion-select {
   border-radius: 8px;
 }
 
+.nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .line-clamp {
   overflow: hidden;
   display: -webkit-box;
@@ -410,6 +415,7 @@ label.required {
     display: flex;
     justify-content: space-between;
   }
+
   .react-tabs__tab {
     flex: 1 1 0%;
     display: inline-block;
@@ -433,21 +439,41 @@ label.required {
       right: 0;
       width: 200%;
       height: 200%;
-      
+
       border-radius: 8px;
       border-width: 1px;
       border-style: solid;
       border-color: white;
-      
+
       transform: scale(.5);
       transform-origin: right top;
     }
   }
+
   .react-tabs__tab--selected {
     color: var(--ion-color-primary);
 
     &::before {
       border-color: var(--ion-color-primary);
+    }
+  }
+
+
+  .members {
+    display: flex;
+    flex-wrap: wrap;
+
+    &.nowrap {
+      // flex-wrap: nowrap;
+
+      .Staff {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    .Staff:not(.inline) {
+      width: 100%;
     }
   }
 

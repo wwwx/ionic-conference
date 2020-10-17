@@ -82,7 +82,7 @@ const RoomDetail: React.FC = () => {
           <span className="color-666 font-14">{toDateLocaleString(date)}</span>
         </div>
         <div className="app-card">
-          <TimeList {...{ time, setTime }} />
+          <TimeList {...{ time, setTime }} readonly />
         </div>
       </IonContent>
     </IonPage>

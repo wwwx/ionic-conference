@@ -4,22 +4,34 @@ import classnames from 'classnames'
 import React from 'react'
 
 import { Role } from '../service/enum'
+import { MemberRecord } from '../service/mine.model'
 
 type StaffProps = {
-  role: Role;
+  info?: MemberRecord;
 };
 
-const Staff: React.FC<StaffProps> = ({ role }) => {
-  const roleName = getRoleName(role);
+const Staff: React.FC<StaffProps> = ({ info }) => {
+  if (!info) {
+    return null;
+  }
+  if (!info.role) {
+    return (
+      <div className="Staff inline">
+        <div className="avatar"></div>
+      </div>
+    );
+  }
+  const roleName = getRoleName(info.role);
+
   return (
     <div className="Staff">
       <div className="avatar"></div>
       <div className="info">
         <div className="top">
-          <span className="name">张晓明</span>
-          <span className={classnames('role', role)}>{roleName}</span>
+          <span className="name">{info.name}</span>
+          <span className={classnames('role', info.role)}>{roleName}</span>
         </div>
-        <div className="dept">战略与人力资源中心</div>
+        <div className="dept">{info.dept}</div>
       </div>
     </div>
   );

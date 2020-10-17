@@ -3,17 +3,16 @@ import React, { useState } from 'react'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 
 import fetcher from '../../service/base-service'
-import { ConferenceFinishedCard, ConferenceHasNotStartCard, ConferenceProcessingCard } from './Card/index'
 import { Empty, ErrorMessage, Loading } from '../../components/Common'
-import { MineCardParams } from '../../service/mine.model'
 import { ConferenceType } from '../../service/enum'
+import { MineCardParams } from '../../service/mine.model'
+import { ConferenceFinishedCard, ConferenceHasNotStartCard, ConferenceProcessingCard } from './Card/index'
 
 // import 'react-tabs/style/react-tabs.css'
 
 const Conference: React.FC = () => {
   const [tabIndex, setTabIndex] = useState(1);
   const { data, error } = useSWR('/api/conference-list', fetcher.get);
-  // console.log(data)
   if (error) return <ErrorMessage />;
   if (!data) return <Loading />;
 
@@ -35,15 +34,15 @@ const Conference: React.FC = () => {
   }
 
   const finishedData = list.filter(
-    (item: any) => item.type === ConferenceType.FINISHED
+    (item: MineCardParams) => item.type === ConferenceType.FINISHED
   );
 
   const hasNotStartData = list.filter(
-    (item: any) => item.type === ConferenceType.HAS_NOT_START
+    (item: MineCardParams) => item.type === ConferenceType.HAS_NOT_START
   );
 
   const processingData = list.filter(
-    (item: any) => item.type === ConferenceType.PROCESSING
+    (item: MineCardParams) => item.type === ConferenceType.PROCESSING
   );
 
   return (

@@ -34,17 +34,26 @@ type ItemProps = {
   time: number[];
   i: number;
   setTime: (time: number[]) => void;
+  readonly?: boolean;
 };
 
-const Item: React.FC<ItemProps> = ({ title, isActive, i, time, setTime }) => {
+const Item: React.FC<ItemProps> = ({
+  title,
+  isActive,
+  i,
+  time,
+  setTime,
+  readonly = false,
+}) => {
   const handleClick = useCallback(() => {
+    if (readonly) return;
     const index = time.indexOf(i);
     if (index > -1) {
       setTime(time.splice(index, 1));
     } else {
       setTime([...time, i]);
     }
-  }, [i, time, setTime]);
+  }, [readonly, i, time, setTime]);
 
   return (
     <div
@@ -57,11 +66,12 @@ const Item: React.FC<ItemProps> = ({ title, isActive, i, time, setTime }) => {
 };
 
 type TimeProps = {
+  readonly?: boolean;
   time: number[];
   setTime: (value: number[]) => void;
 };
 
-export const TimeList: React.FC<TimeProps> = ({ time, setTime }) => {
+export const TimeList: React.FC<TimeProps> = ({ readonly, time, setTime }) => {
   return (
     <div className="conference-picklist">
       {picklist.map((item, i) => (
@@ -69,7 +79,7 @@ export const TimeList: React.FC<TimeProps> = ({ time, setTime }) => {
           title={item}
           isActive={i >= Math.min(...time) && i <= Math.max(...time)}
           key={i}
-          {...{ i, time, setTime }}
+          {...{ i, time, setTime, readonly }}
         />
       ))}
     </div>
