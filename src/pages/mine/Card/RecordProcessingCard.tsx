@@ -5,7 +5,7 @@ import Card from './Card'
 import { Role } from '../../../service/enum'
 import { ICardProps } from './type'
 
-const ConferenceProcessingCard: React.FC<ICardProps> = ({
+const RecordProcessingCard: React.FC<ICardProps> = ({
   data,
   typeName,
   onConfirm,
@@ -108,4 +108,4 @@ const ConferenceProcessingCard: React.FC<ICardProps> = ({
   );
 };
 
-export default ConferenceProcessingCard;
+export default RecordProcessingCard;

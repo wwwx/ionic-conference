@@ -4,10 +4,10 @@ import classnames from 'classnames'
 import React from 'react'
 
 import { Role } from '../service/enum'
-import { MemberRecord } from '../service/mine.model'
+import { MemberItem } from '../service/mine.model'
 
 type StaffProps = {
-  info?: MemberRecord;
+  info?: MemberItem;
 };
 
 const Staff: React.FC<StaffProps> = ({ info }) => {

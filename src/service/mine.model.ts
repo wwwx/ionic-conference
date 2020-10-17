@@ -12,10 +12,21 @@ export interface MineCardParams {
   host: string;
   isHost: boolean;
   content: string;
-  members: MemberRecord[];
+  members: MemberItem[];
 }
 
-export interface MemberRecord {
+export interface RecordParams {
+  type: number;
+  title: string;
+  address: string;
+  datetime: string;
+  host: string;
+  isHost: boolean;
+  content: string;
+  members: MemberItem[];
+}
+
+export interface MemberItem {
   role: Role;
   name: string;
   dept: string;

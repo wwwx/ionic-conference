@@ -2,14 +2,14 @@ import '@ionic/react/css/core.css'
 import '@ionic/react/css/normalize.css'
 import '@ionic/react/css/structure.css'
 import '@ionic/react/css/typography.css'
-import './theme/variables.css'
-import './custom-bootstrap/index.scss'
 import './App.scss'
+import './custom-bootstrap/index.scss'
+import './theme/variables.css'
 
 import React, { lazy, Suspense } from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
 import { IonApp, IonRouterOutlet } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import Loading from './components/Loading'
 
@@ -19,6 +19,7 @@ const Reservation = lazy(() => import('./pages/reservation/Reservation'));
 const AvailableRoom = lazy(() => import('./pages/room/AvailableRoom'));
 const RoomDetail = lazy(() => import('./pages/room/RoomDetail'));
 const Mine = lazy(() => import('./pages/mine/Mine'));
+const Record = lazy(() => import('./pages/mine/Record'));
 
 interface Page {
   pageLink: string;
@@ -56,6 +57,11 @@ const pages: Page[] = [
     pageLink: '/mine/:type',
     view: Mine,
     displayName: 'Mine',
+  },
+  {
+    pageLink: '/record/:type',
+    view: Record,
+    displayName: 'Record',
   },
   {
     pageLink: '/loading',

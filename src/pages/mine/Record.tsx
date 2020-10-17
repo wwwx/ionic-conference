@@ -3,19 +3,19 @@ import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar
 import { useParams } from 'react-router'
 
 import AppHeader from '../../components/AppHeader'
-import Conference from './MyConference'
-import Invite from './MyInvite'
+import RecordList from './RecordList'
+import RecordPublish from './RecordPublish'
 import { MineRouteParams } from '../../service/mine.model'
 
 const Mine: React.FC = (props) => {
   const tabsConfig = [
     {
-      label: '会议邀请',
-      value: 'invite',
+      label: '发布纪要',
+      value: 'publish',
     },
     {
-      label: '我的会议',
-      value: 'conference',
+      label: '查看纪要',
+      value: 'list',
     },
   ];
   // eslint-disable-next-line
@@ -32,7 +32,7 @@ const Mine: React.FC = (props) => {
 
   return (
     <IonPage className="Reservation">
-      <AppHeader>我的会议</AppHeader>
+      <AppHeader>会议纪要</AppHeader>
       <IonContent>
         <IonToolbar>
           <IonSegment
@@ -47,8 +47,8 @@ const Mine: React.FC = (props) => {
             ))}
           </IonSegment>
         </IonToolbar>
-        {active === 'invite' && <Invite />}
-        {active === 'conference' && <Conference />}
+        {active === 'publish' && <RecordPublish />}
+        {active === 'list' && <RecordList />}
       </IonContent>
     </IonPage>
   );

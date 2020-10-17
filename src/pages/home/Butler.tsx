@@ -38,7 +38,11 @@ const Profile: React.FC = () => {
           </Link>
         </div>
         <div className=" d-flex flex-nowrap mx-3">
-          <Link to="/" className="app-card fadeInUp" style={trail[3]}>
+          <Link
+            to="/record/list"
+            className="app-card fadeInUp"
+            style={trail[3]}
+          >
             <div className="icon mr-2 rounded"></div>
             <div className="title color-111">会议纪要</div>
           </Link>
