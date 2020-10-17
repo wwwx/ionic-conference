@@ -6,6 +6,7 @@
 ### Bug
 
 - 点击返回按钮，返回到上一页时 页面的返回按钮丢失 (IonBackButton 添加 defaultHref 属性)
+- package.json 无法显示新增的npm包（dayjs react-tabs @types/react-tabs）
 
 ### Improve
 
