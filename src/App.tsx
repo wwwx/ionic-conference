@@ -16,6 +16,7 @@ import Loading from './components/Loading'
 const Home = lazy(() => import('./pages/home/Home'));
 const MySchedule = lazy(() => import('./pages/home/MySchedule'));
 const Reservation = lazy(() => import('./pages/reservation/Reservation'));
+const ConferenceDetail = lazy(() => import('./pages/reservation/ConferenceDetail'));
 const AvailableRoom = lazy(() => import('./pages/room/AvailableRoom'));
 const RoomDetail = lazy(() => import('./pages/room/RoomDetail'));
 const Mine = lazy(() => import('./pages/mine/Mine'));
@@ -42,6 +43,11 @@ const pages: Page[] = [
     pageLink: '/reservation',
     view: Reservation,
     displayName: 'Reservation',
+  },
+  {
+    pageLink: '/conference-detail',
+    view: ConferenceDetail,
+    displayName: 'ConferenceDetail',
   },
   {
     pageLink: '/available-room',
@@ -77,14 +83,7 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Switch>
             {pages.map((page, i) => {
-              return (
-                <Route
-                  exact={true}
-                  path={page.pageLink}
-                  render={() => <page.view />}
-                  key={i}
-                />
-              );
+              return <Route exact={true} path={page.pageLink} render={() => <page.view />} key={i} />;
             })}
             <Redirect to="/" />
           </Switch>

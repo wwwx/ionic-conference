@@ -1,0 +1,45 @@
+.AppInput {
+  background-color: #F9FAFC;
+  height: 36px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  // margin: 1rem 0;
+  margin-bottom: 22px;
+  position: relative;
+
+  &_wrap {
+    width: calc(100% - 50px);
+    input {
+      outline: none;
+      border: 0;
+      background-color: transparent;
+      padding-left: .75rem;
+      padding-right: .75rem;
+  
+      &::placeholder {
+        color: #AEAFB0;
+      }
+    }
+  }
+
+  &_count {
+    position: absolute;
+    bottom: 10px;
+    right: .75rem;
+    color: #AEAFB0;
+  }
+
+  &_error_message {
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: .75rem;
+    padding-top: 5px;
+    font-size: 12px;
+    color: var(--ion-color-danger);
+    opacity: 1;
+    transition: all .28s;
+
+  }
+}

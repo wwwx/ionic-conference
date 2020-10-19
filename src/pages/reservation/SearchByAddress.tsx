@@ -1,10 +1,12 @@
 import React, { useCallback, useState } from 'react'
 import { IonButton, IonSelect, IonSelectOption } from '@ionic/react'
+import { useHistory } from 'react-router'
 
 import TimePicker from '../../components/TimePicker'
 import { DatePicker } from '../../components/Calendar'
 
 const SearchByAddress: React.FC = () => {
+  const history = useHistory();
   const [address, setAddress] = useState<string>('');
   const [floor, setFloor] = useState<string>('');
   const [room, setRoom] = useState<string>('');
@@ -15,29 +17,23 @@ const SearchByAddress: React.FC = () => {
     setDate(value);
   }, []);
 
+  function nextStep() {
+    history.push('/conference-detail');
+  }
+
   return (
     <div className="mx-3">
       <div className="app-list">
         <div className="app-item border-bottom">
           <label className="required">会议地点</label>
-          <IonSelect
-            interface="action-sheet"
-            value={address}
-            onIonChange={(e) => setAddress(e.detail.value)}
-            placeholder="请选择"
-          >
+          <IonSelect interface="action-sheet" value={address} onIonChange={(e) => setAddress(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">由由世纪广场1号楼</IonSelectOption>
             <IonSelectOption value="2">由由世纪广场2号楼</IonSelectOption>
           </IonSelect>
         </div>
         <div className="app-item border-bottom">
           <label className="required">会议楼层</label>
-          <IonSelect
-            interface="action-sheet"
-            value={floor}
-            onIonChange={(e) => setFloor(e.detail.value)}
-            placeholder="请选择"
-          >
+          <IonSelect interface="action-sheet" value={floor} onIonChange={(e) => setFloor(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">26楼</IonSelectOption>
             <IonSelectOption value="2">22楼</IonSelectOption>
             <IonSelectOption value="3">21楼</IonSelectOption>
@@ -46,12 +42,7 @@ const SearchByAddress: React.FC = () => {
         </div>
         <div className="app-item border-bottom">
           <label className="required">会议室名称</label>
-          <IonSelect
-            interface="action-sheet"
-            value={room}
-            onIonChange={(e) => setRoom(e.detail.value)}
-            placeholder="请选择"
-          >
+          <IonSelect interface="action-sheet" value={room} onIonChange={(e) => setRoom(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">同心</IonSelectOption>
             <IonSelectOption value="2">共赢</IonSelectOption>
             <IonSelectOption value="3">华尔街</IonSelectOption>
@@ -70,7 +61,7 @@ const SearchByAddress: React.FC = () => {
         </div>
       </div>
 
-      <IonButton className="app-button mt-5 mb-4" expand="block">
+      <IonButton className="app-button mt-5 mb-4" expand="block" onClick={nextStep}>
         下一步
       </IonButton>
     </div>

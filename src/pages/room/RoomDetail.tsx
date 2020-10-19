@@ -44,9 +44,7 @@ function Carousel() {
       {roomList.map((room, i) => {
         return (
           <IonSlide key={i}>
-            <div
-              style={{ ...RoomStyle, backgroundImage: `url(${room.imgUrl})` }}
-            ></div>
+            <div style={{ ...RoomStyle, backgroundImage: `url(${room.imgUrl})` }}></div>
           </IonSlide>
         );
       })}
