@@ -1,21 +1,43 @@
 .AppInput {
-  background-color: #F9FAFC;
-  height: 36px;
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  // margin: 1rem 0;
-  margin-bottom: 22px;
-  position: relative;
+
+  
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+
+  &_label {
+    color: #5E5E5E;
+    font-size: 14px;
+    margin-bottom: .5rem;
+    display: block;
+  }
 
   &_wrap {
+
+    background-color: #F9FAFC;
+    height: 36px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &_inner {
     width: calc(100% - 50px);
-    input {
+
+
+
+    input, textarea {
+      width: 100%;
       outline: none;
       border: 0;
       background-color: transparent;
       padding-left: .75rem;
       padding-right: .75rem;
+      line-height: 1.5;
   
       &::placeholder {
         color: #AEAFB0;
@@ -28,18 +50,41 @@
     bottom: 10px;
     right: .75rem;
     color: #AEAFB0;
+    font-size: 12px;
   }
 
   &_error_message {
     margin: 0;
     position: absolute;
     top: 100%;
-    left: .75rem;
-    padding-top: 5px;
-    font-size: 12px;
+    left: 0;
+    padding-top: 2px;
+    font-size: 10px;
     color: var(--ion-color-danger);
     opacity: 1;
     transition: all .28s;
 
   }
+
+
+  
+  &.textarea &_wrap {
+    height: auto;
+    width: 100%;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+
+  &.textarea &_inner {
+    width: 100%;
+  }
+
+  &.error &_wrap {
+    border: 1px solid var(--ion-color-danger);
+  }
+
+  &.textarea.character_count &_wrap {
+    padding-bottom: 1.5rem;
+  }
+
 }

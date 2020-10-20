@@ -486,6 +486,10 @@ label.required {
     width: 100%;
     padding-top: 135px; 
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
     .bg {
       position: absolute;
       top: 0;
@@ -498,10 +502,7 @@ label.required {
 
   .main {
     margin-top: 75px;
-    .card-title {
-      color: #5E5E5E;
-      font-size: 14px;
-    }
+    
   }
 
   

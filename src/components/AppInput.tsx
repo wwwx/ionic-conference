@@ -1,49 +1,55 @@
 import './AppInput.scss'
 
-import React, { useCallback, useState } from 'react'
+import classnames from 'classnames'
+import React from 'react'
 
 type AppInputProps = {
   value: string;
-  onChange?: (e: any) => void;
+  label?: string;
+  required?: boolean;
   type?: string;
   placeholder?: string;
   characterSize?: number;
+  characterCount?: number;
   error?: boolean;
   errorMessage?: string;
+  readOnly?: boolean;
+  onChange?: (e: any) => void;
+  onInput?: (e: any) => void;
+  validate?: (value: any) => void;
 };
 const AppInput: React.FC<AppInputProps> = ({
-  value,
-  onChange = () => {},
-  type = 'text',
-  placeholder = '请输入',
-  characterSize = 20,
+  label,
+  required,
+  type,
+  characterSize = 0,
+  characterCount,
   error,
   errorMessage,
+  validate,
+  ...otherProps
 }) => {
-  const [characterCount, setCharacterCount] = useState(0);
-  const handleInput = useCallback(
-    (e) => {
-      // console.log(e.target.value);
-      const len = e.target.value.length;
-      onChange(e);
-
-      if (len > characterSize) {
-        e.target.value = e.target.value.slice(0, characterSize);
-      }
-      setCharacterCount(e.target.value.length);
-    },
-    [characterSize, onChange]
-  );
-
   return (
-    <div className="AppInput">
+    <div className={classnames('AppInput', type, error && 'error', characterSize > 0 && 'character_count')}>
+      {label && <label className={classnames('AppInput_label', required && 'required')}>{label}</label>}
       <div className="AppInput_wrap">
-        <input type={type} placeholder={placeholder} onInput={handleInput} />
+        <div className="AppInput_inner">
+          {type === 'select' && (
+            <select>
+              <option value="1">slkjf</option>
+              <option value="2">slkjf</option>
+            </select>
+          )}
+          {type === 'textarea' && <textarea rows={3} {...otherProps}></textarea>}
+          {<input type={type} {...otherProps} />}
+        </div>
+        {characterSize > 0 && (
+          <span className="AppInput_count">
+            {characterCount}/{characterSize}
+          </span>
+        )}
+        <p className="AppInput_error_message">{error && errorMessage}</p>
       </div>
-      <span className="AppInput_count">
-        {characterCount}/{characterSize}
-      </span>
-      <p className="AppInput_error_message">{error && errorMessage}</p>
     </div>
   );
 };

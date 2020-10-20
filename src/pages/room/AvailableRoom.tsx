@@ -13,9 +13,7 @@ const AvailableRoom: React.FC = () => {
           <Item key={i} />
         ))}
 
-        <div className="mt-5 mb-4 color-ccc font-12 text-center">
-          没有更多了
-        </div>
+        <div className="mt-5 mb-4 color-ccc font-12 text-center">没有更多了</div>
       </IonContent>
     </IonPage>
   );
@@ -28,7 +26,9 @@ const Item: React.FC = () => {
     history.push('/room-detail');
   }
 
-  function booking() {}
+  function booking() {
+    history.push('/conference-detail');
+  }
 
   return (
     <div className="app-card d-flex">
@@ -48,11 +48,7 @@ const Item: React.FC = () => {
         </div>
 
         <div className="d-flex">
-          <IonButton
-            fill="outline"
-            className="app-button"
-            onClick={handleDetailClick}
-          >
+          <IonButton fill="outline" className="app-button" onClick={handleDetailClick}>
             查看详情
           </IonButton>
           <IonButton className="app-button ml-2" onClick={booking}>
