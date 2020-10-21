@@ -3,7 +3,7 @@ import '@ionic/react/css/normalize.css'
 import '@ionic/react/css/structure.css'
 import '@ionic/react/css/typography.css'
 import './App.scss'
-import './custom-bootstrap/index.scss'
+import './mini-bootstrap/index.scss'
 import './theme/variables.css'
 
 import React, { lazy, Suspense } from 'react'

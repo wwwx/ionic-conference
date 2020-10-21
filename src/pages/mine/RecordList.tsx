@@ -15,9 +15,7 @@ const Invite: React.FC = () => {
   useEffect(() => {
     if (data && data.data) {
       const list = data.data as MineCardParams[];
-      setPublishedList(
-        list.filter((item) => item.type === RecordType.PUBLISHED)
-      );
+      setPublishedList(list.filter((item) => item.type === RecordType.PUBLISHED));
     }
   }, [data]);
 
@@ -43,15 +41,7 @@ const Invite: React.FC = () => {
     <>
       {publishedList.map((item: MineCardParams, i: number) => {
         const typeName = item.isHost ? '主持' : '参与';
-        return (
-          <RecordPublishedCard
-            data={item}
-            key={i}
-            typeName={typeName}
-            onConfirm={handConfirm}
-            onCancel={handleCancel}
-          />
-        );
+        return <RecordPublishedCard data={item} key={i} typeName={typeName} onConfirm={handConfirm} onCancel={handleCancel} />;
       })}
     </>
   );

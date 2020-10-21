@@ -32,12 +32,7 @@ const Invite: React.FC = () => {
   return (
     <>
       {list.map((item: MineCardParams, i: number) => (
-        <InviteCard
-          data={item}
-          key={i}
-          onConfirm={handConfirm}
-          onCancel={handleCancel}
-        />
+        <InviteCard data={item} key={i} onConfirm={handConfirm} onCancel={handleCancel} />
       ))}
     </>
   );

@@ -59,9 +59,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = (props) => {
       </div>
       <div className="bottom d-flex justify-content-between">
         <span className="meetingType color-333 font-14">{options.type}</span>
-        <span className="meetingContent color-333 flex-grow-1 font-14">
-          {options.content}
-        </span>
+        <span className="meetingContent color-333 flex-grow-1 font-14">{options.content}</span>
         <span className="meetingViewButton color-666 font-12">查看详情</span>
       </div>
     </div>
@@ -73,16 +71,13 @@ type ScheduleListProps = {
 };
 
 const ScheduleList: React.FC<ScheduleListProps> = (props) => {
-  const { data, error } = useSWR(
-    `/api/my-schedule?date=${props.date}`,
-    fetcher.get
-  );
+  const { data, error } = useSWR(`/api/my-schedule?date=${props.date}`, fetcher.get);
   // console.log(isLoading, data)
   if (error) return <ErrorMessage />;
 
   if (!data) return <Loading />;
 
-  const listData = data.data;
+  const listData: any = data.data;
   if (!listData) return <Empty />;
 
   return (

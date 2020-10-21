@@ -1,7 +1,8 @@
-.AppInput {
+.AppSelect {
 
 
   margin-bottom: 15px;
+
 
   &_label {
     color: #5E5E5E;
@@ -21,33 +22,44 @@
   }
 
   &_inner {
-    width: calc(100% - 50px);
+    flex: 1;
+    height: inherit;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: .5rem;
+      right: .5rem;
+      width: 10px;
+      height: 8px;
+      background-image: linear-gradient(135deg, transparent, transparent 50%, #DCDCDC 50%, #DCDCDC);
+    }
 
 
 
-    input,
-    textarea {
+    select {
       width: 100%;
+      height: 100%;
       outline: none;
       border: 0;
       background-color: transparent;
       padding-left: .75rem;
       padding-right: .75rem;
       line-height: 1.5;
+      position: relative;
+      -moz-appearance: none;
+      /* Firefox */
+      -webkit-appearance: none;
+      /* Safari and Chrome */
+      appearance: none;
 
       &::placeholder {
         color: #AEAFB0;
       }
+
     }
   }
 
-  &_count {
-    position: absolute;
-    bottom: 10px;
-    right: .75rem;
-    color: #AEAFB0;
-    font-size: 12px;
-  }
 
   &_error_message {
     margin: 0;
@@ -62,25 +74,8 @@
 
   }
 
-
-
-  &.textarea &_wrap {
-    height: auto;
-    width: 100%;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-  }
-
-  &.textarea &_inner {
-    width: 100%;
-  }
-
   &.error &_wrap {
     border: 1px solid var(--ion-color-danger);
-  }
-
-  &.textarea.character_count &_wrap {
-    padding-bottom: 1.5rem;
   }
 
 }

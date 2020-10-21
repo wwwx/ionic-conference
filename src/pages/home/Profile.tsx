@@ -32,19 +32,11 @@ function ProfileContent() {
           <img src={profile.avatar} alt="" />
         </IonAvatar>
         <div className="ml-3 flex-grow-1 fadeInUp" style={trail[1]}>
-          <h3 className="font-18 font-weight-bold color-111">
-            {profile.staff}
-          </h3>
+          <h3 className="font-18 font-weight-bold color-111">{profile.staff}</h3>
           <p className="mt-1 mb-0 color-999 font-12">{profile.department}</p>
         </div>
 
-        <IonButton
-          className="status-select-button fadeInUp"
-          style={trail[2]}
-          shape="round"
-          fill="outline"
-          size="small"
-        >
+        <IonButton className="status-select-button fadeInUp" style={trail[2]} shape="round" fill="outline" size="small">
           <IonSelect
             // interfaceOptions={customActionSheetOptions}
             interface="popover"
@@ -88,11 +80,13 @@ function ProfileContent() {
 
 const Profile: React.FC = () => {
   return (
-    <IonCard className="Profile mt-5">
-      <IonCardContent>
-        <ProfileContent />
-      </IonCardContent>
-    </IonCard>
+    <div className="Profile mt-5 fadeInUp">
+      <IonCard>
+        <IonCardContent>
+          <ProfileContent />
+        </IonCardContent>
+      </IonCard>
+    </div>
   );
 };
 

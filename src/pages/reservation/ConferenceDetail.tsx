@@ -3,7 +3,10 @@ import { IonButton, IonContent, IonPage } from '@ionic/react'
 
 import AppHeader from '../../components/AppHeader'
 import AppInput from '../../components/AppInput'
+import AppSelect from '../../components/AppSelect'
 import useInput from '../../hooks/useInput'
+import useSelect from '../../hooks/useSelect'
+import { RemindOptions } from '../options'
 
 const Reservation: React.FC = () => {
   const title = useInput({
@@ -33,9 +36,10 @@ const Reservation: React.FC = () => {
     required: true,
   });
 
-  const remind = useInput({
+  const remind = useSelect({
     label: '会议提醒',
-    type: 'select',
+    initValue: '1h',
+    data: RemindOptions,
   });
 
   function isDisabledButton() {
@@ -43,8 +47,9 @@ const Reservation: React.FC = () => {
   }
 
   const submit = useCallback(() => {
-    console.log('submitted');
-  }, []);
+    console.log(title.value, content.value, remind.value);
+    // console.log('submitted');
+  }, [title, content, remind]);
 
   return (
     <IonPage className="Reservation">
@@ -68,7 +73,7 @@ const Reservation: React.FC = () => {
           <div className="app-card">
             <AppInput {...members} />
             <AppInput {...recorder} />
-            <AppInput {...remind} />
+            <AppSelect {...remind} />
           </div>
 
           <IonButton className="app-button mt-5 mb-4 mx-3" expand="block" disabled={isDisabledButton()} onClick={submit}>
