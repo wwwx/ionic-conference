@@ -54,10 +54,11 @@
       appearance: none;
 
       &::placeholder {
-        color: #AEAFB0;
+        color: var(--ion-color-placeholder);
       }
 
     }
+
   }
 
 
@@ -78,4 +79,14 @@
     border: 1px solid var(--ion-color-danger);
   }
 
+
+  &.empty_value {
+    select {
+      color: #AEAFB0;
+
+      option {
+        color: #333333;
+      }
+    }
+  }
 }

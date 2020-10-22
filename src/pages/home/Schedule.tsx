@@ -14,7 +14,7 @@ const Schedule: React.FC = () => {
         <span className="color-111 font-weight-bold">今日日程</span>
         <span className="color-666 font-14">{toDateLocaleString(date)}</span>
       </div>
-      <div className="app-card">
+      <div className="app-card" style={{ minHeight: '120px' }}>
         <ScheduleList date={date} />
       </div>
     </React.Fragment>

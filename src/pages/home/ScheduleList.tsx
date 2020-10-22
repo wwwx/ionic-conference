@@ -1,6 +1,7 @@
 import React from 'react'
 import useSWR from 'swr'
 import { IonAvatar, IonButton } from '@ionic/react'
+import { useHistory } from 'react-router'
 
 import fetcher from '../../service/base-service'
 import { Empty, ErrorMessage, Loading } from '../../components/Common'
@@ -43,8 +44,12 @@ const ScheduleItem: React.FC<ScheduleItemProps> = (props) => {
     ...props.data,
     ...getStatusOptions(props.data.status),
   };
+  const history = useHistory()
+  function showDetail() {
+    history.push('/conference-detail/edit')
+  }
   return (
-    <div className="item mb-3 border-bottom pb-3 fadeInUp" style={props.style}>
+    <div className="item mb-3 border-bottom pb-3 fadeInUp" style={props.style} onClick={showDetail}>
       <div className="top d-flex align-items-center mb-1">
         <IonButton color={options.color} size="small" className="m-0">
           <IonAvatar>

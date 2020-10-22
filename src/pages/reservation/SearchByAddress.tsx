@@ -18,7 +18,7 @@ const SearchByAddress: React.FC = () => {
   }, []);
 
   function nextStep() {
-    history.push('/conference-detail');
+    history.push('/conference-detail/create');
   }
 
   return (

@@ -37,11 +37,7 @@ const Reservation: React.FC = () => {
       <AppHeader>会议预定</AppHeader>
       <IonContent>
         <IonToolbar>
-          <IonSegment
-            mode="md"
-            value={active}
-            onIonChange={(e: any) => handleTabsChange(e.detail.value)}
-          >
+          <IonSegment mode="md" value={active} onIonChange={(e: any) => handleTabsChange(e.detail.value)}>
             {tabsConfig.map((tab) => (
               <IonSegmentButton key={tab.value} value={tab.value}>
                 <IonLabel>{tab.label}</IonLabel>

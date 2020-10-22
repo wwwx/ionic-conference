@@ -3,6 +3,7 @@ import { IonButton, IonChip, IonContent, IonPage } from '@ionic/react'
 import { useHistory } from 'react-router'
 
 import AppHeader from '../../components/AppHeader'
+import { NoMore } from '../../components/Common'
 
 const AvailableRoom: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const AvailableRoom: React.FC = () => {
           <Item key={i} />
         ))}
 
-        <div className="mt-5 mb-4 color-ccc font-12 text-center">没有更多了</div>
+        <NoMore />
       </IonContent>
     </IonPage>
   );
@@ -27,7 +28,7 @@ const Item: React.FC = () => {
   }
 
   function booking() {
-    history.push('/conference-detail');
+    history.push('/conference-detail/create');
   }
 
   return (

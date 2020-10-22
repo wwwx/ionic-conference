@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { SelectOption } from '../components/AppSelect'
 
 export default function useSelect({
   label = '',
-  placeholder = '请输入',
+  placeholder = '请选择',
   readOnly = false,
   required = false,
   initValue = '',
@@ -13,18 +13,21 @@ export default function useSelect({
   validator = (v: string) => true,
   validateTriggers = ['onChange']
 }) {
-  const [value, setValue] = useState(initValue || data[0].value)
+  const [value, setValue] = useState(initValue)
   const [error, setError] = useState(false)
 
   if (required) {
     validator = (value) => value.trim() !== ''
-    errorMessage = `${label}不能为空`
+    // errorMessage = `请选择${label}`
   }
+
+  useEffect(() => {
+    setValue(initValue)
+  }, [initValue])
 
   function onChange(e: any) {
     const { value } = e.target
     setValue(value)
-    // console.log(value)
 
     if (validateTriggers.includes('onChange')) {
       setError(!validator(value))

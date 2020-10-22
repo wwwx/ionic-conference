@@ -6,11 +6,7 @@ type AppHeaderProps = {
   showBackButton?: boolean;
 };
 
-const AppHeader: React.FC<AppHeaderProps> = ({
-  title = '',
-  showBackButton = true,
-  children,
-}) => {
+const AppHeader: React.FC<AppHeaderProps> = ({ title = '', showBackButton = true, children }) => {
   return (
     <IonHeader>
       <IonToolbar color="primary">

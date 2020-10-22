@@ -14,18 +14,30 @@ type AppSelectProps = {
   error?: boolean;
   errorMessage?: string;
   data?: any;
-  value?: string;
+  value?: any;
   placeholder?: string;
   readOnly?: boolean;
   onChange?: (e: any) => void;
 };
-const AppSelect: React.FC<AppSelectProps> = ({ label, required, error, errorMessage, data, value, ...otherprops }) => {
+const AppSelect: React.FC<AppSelectProps> = ({
+  label,
+  required,
+  error,
+  errorMessage,
+  data,
+  value,
+  readOnly,
+  placeholder,
+  ...otherprops
+}) => {
+  // console.log('value: ', value);
   return (
-    <div className={classnames('AppSelect', error && 'error')}>
+    <div className={classnames('AppSelect', error && 'error', value === '' && 'empty_value')}>
       {label && <label className={classnames('AppSelect_label', required && 'required')}>{label}</label>}
       <div className="AppSelect_wrap">
         <div className="AppSelect_inner">
-          <select {...otherprops} defaultValue={value}>
+          <select {...otherprops} value={value} disabled={readOnly}>
+            <option value="">{placeholder}</option>
             {data &&
               data.map((option: SelectOption, i: number) => (
                 <option key={i} value={option.value}>

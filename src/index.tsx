@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './mock';
+import './mock'; // TODO remove this import at production env
 import { setupConfig } from '@ionic/react';
 
 setupConfig({

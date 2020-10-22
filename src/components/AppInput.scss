@@ -36,7 +36,7 @@
       line-height: 1.5;
 
       &::placeholder {
-        color: #AEAFB0;
+        color: var(--ion-color-placeholder);
       }
     }
   }

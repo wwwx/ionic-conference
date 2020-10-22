@@ -1,0 +1,68 @@
+.AppMemberSelect {
+
+
+  margin-bottom: 15px;
+
+
+  &_label {
+    color: #5E5E5E;
+    font-size: 14px;
+    margin-bottom: .5rem;
+    display: block;
+  }
+
+  &_item {
+
+    background-color: #F9FAFC;
+    height: 36px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:not(last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &_placeholder {
+    padding: 0 .75rem;
+    color: var(--ion-color-placeholder);
+  }
+
+  &_error_message {
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 2px;
+    font-size: 10px;
+    color: var(--ion-color-danger);
+    opacity: 1;
+    transition: all .28s;
+
+  }
+
+  &_icon--end {
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    background-color: #DCDCDC;
+    border-radius: 2px;
+    background-image: url('/images/add.png');
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &.error &_item {
+    border: 1px solid var(--ion-color-danger);
+  }
+
+
+  &.empty_value {
+    color: #AEAFB0;
+  }
+}

@@ -19,4 +19,8 @@ function Empty() {
   );
 }
 
-export { Loading, ErrorMessage, Empty };
+function NoMore() {
+  return <div className="mt-4 mb-5 color-ccc font-12 text-center">没有更多了</div>;
+}
+
+export { Loading, ErrorMessage, Empty, NoMore };

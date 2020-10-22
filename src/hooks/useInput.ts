@@ -18,7 +18,7 @@ export default function useInput({
 
   if (required) {
     validator = (value) => value.trim() !== ''
-    errorMessage = `${label}不能为空`
+    // errorMessage = `${label}不能为空`
   }
 
   const onInput = useCallback(
