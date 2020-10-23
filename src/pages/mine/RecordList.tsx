@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
 
 import fetcher from '../../service/base-service'
 import { Empty, ErrorMessage, Loading } from '../../components/Common'
@@ -8,6 +9,7 @@ import { MineCardParams, RecordParams } from '../../service/mine.model'
 import { RecordPublishedCard } from './Card/index'
 
 const Invite: React.FC = () => {
+  const history = useHistory();
   const [publishedList, setPublishedList] = useState<RecordParams[]>([]);
   const { data, error } = useSWR('/api/record-list', fetcher.get);
   // console.log(data)
@@ -31,6 +33,7 @@ const Invite: React.FC = () => {
 
   function handConfirm() {
     console.log('confirm');
+    history.push('/record-detail');
   }
 
   function handleCancel() {

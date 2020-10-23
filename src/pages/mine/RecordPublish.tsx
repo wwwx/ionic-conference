@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 import React, { useState } from 'react'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
+import { useHistory } from 'react-router'
 
 import fetcher from '../../service/base-service'
 import { Empty, ErrorMessage, Loading } from '../../components/Common'
@@ -11,6 +12,7 @@ import { RecordHasNotPublishCard, RecordProcessingCard } from './Card/index'
 // import 'react-tabs/style/react-tabs.css'
 
 const Conference: React.FC = () => {
+  const history = useHistory();
   const [tabIndex, setTabIndex] = useState(0);
   const { data, error } = useSWR('/api/record-list', fetcher.get);
   if (error) return <ErrorMessage />;
@@ -27,6 +29,7 @@ const Conference: React.FC = () => {
 
   function handConfirm() {
     console.log('confirm');
+    history.push('/record-detail');
   }
 
   function handleCancel() {

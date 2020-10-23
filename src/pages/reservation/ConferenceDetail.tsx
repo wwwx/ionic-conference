@@ -1,9 +1,11 @@
 import classnames from 'classnames'
 import useSWR from 'swr'
 import React, { useCallback, useState } from 'react'
-import { IonButton, IonContent, IonPage } from '@ionic/react'
+import { IonContent, IonPage } from '@ionic/react'
 import { useParams } from 'react-router'
 
+import AppButton from '../../components/AppButton'
+import AppCard from '../../components/AppCard'
 import AppHeader from '../../components/AppHeader'
 import AppInput from '../../components/AppInput'
 import useInput from '../../hooks/useInput'
@@ -94,26 +96,27 @@ const MainForm: React.FC<MainFormProps> = ({ ...formData }) => {
   }, [title, content, recorder, remind]);
   return (
     <div className="main">
-      <div className="app-card">
+      <AppCard>
         <AppInput {...title} />
         <AppInput {...content} />
         <AppInput {...files} />
-      </div>
-      <div className="app-card">
+      </AppCard>
+      <AppCard>
         <AppMemberSelect {...members} />
         <AppSelect {...recorder} />
         <AppSelect {...remind} />
+      </AppCard>
+      <div className="mx-3">
+        <div className="checkbox">
+          <label>
+            <input className="mr-2" type="checkbox" checked={agree} onChange={handleAgreeChange} />
+            同时发送邮件邀请
+          </label>
+        </div>
+        <AppButton disabled={isDisabledButton()} onClick={submit}>
+          完成
+        </AppButton>
       </div>
-      <div className="checkbox mx-3">
-        <label>
-          <input className="mr-2" type="checkbox" checked={agree} onChange={handleAgreeChange} />
-          同时发送邮件邀请
-        </label>
-      </div>
-
-      <IonButton className="app-button mt-5 mb-5 mx-3" expand="block" disabled={isDisabledButton()} onClick={submit}>
-        完成
-      </IonButton>
     </div>
   );
 };

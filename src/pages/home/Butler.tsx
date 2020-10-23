@@ -1,7 +1,47 @@
+import styled from 'styled-components'
 import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
-const Profile: React.FC = () => {
+const ButlerLink = styled(Link)`
+  position: relative;
+  border-radius: 8px;
+  background-color: white;
+  padding: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  flex: 0 0 calc(50% - 0.25rem);
+  display: flex;
+  align-items: center;
+
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+
+  .title {
+    color: #111111;
+    line-height: 1;
+    font-size: 14px;
+    margin-left: 0.5rem;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-image: url('/images/icon_scheduled@2x.png');
+    background-size: cover;
+  }
+`;
+
+const Butler: React.FC = () => {
+  const ButlerList = [
+    { title: '会议预定', link: '/reservation' },
+    { title: '我的会议', link: '/mine/conference' },
+    { title: '会议纪要', link: '/record/list' },
+    { title: '我的日程', link: '/my-schedule' },
+  ];
+
   const trail = useMemo(() => {
     const styles: { [key: string]: string }[] = [];
     [0, 0, 0, 0, 0].map((_: number, i: number) => {
@@ -18,46 +58,18 @@ const Profile: React.FC = () => {
       <div className="app-block-title fadeInUp" style={trail[0]}>
         <span className="color-111 font-weight-bold">会议管家</span>
       </div>
-      <div className="Butler">
-        <div className=" d-flex flex-nowrap mx-3">
-          <Link
-            to="/reservation"
-            className="app-card mb-2 fadeInUp"
-            style={trail[1]}
-          >
-            <div className="icon mr-2 rounded"></div>
-            <div className="title color-111">会议预定</div>
-          </Link>
-          <Link
-            to="/mine/conference"
-            className="app-card mb-2 ml-2 fadeInUp"
-            style={trail[2]}
-          >
-            <div className="icon mr-2 rounded"></div>
-            <div className="title color-111">我的会议</div>
-          </Link>
-        </div>
-        <div className=" d-flex flex-nowrap mx-3">
-          <Link
-            to="/record/list"
-            className="app-card fadeInUp"
-            style={trail[3]}
-          >
-            <div className="icon mr-2 rounded"></div>
-            <div className="title color-111">会议纪要</div>
-          </Link>
-          <Link
-            to="/my-schedule"
-            className="app-card ml-2 fadeInUp"
-            style={trail[4]}
-          >
-            <div className="icon mr-2 rounded"></div>
-            <div className="title color-111">我的日程</div>
-          </Link>
-        </div>
+      <div className="d-flex flex-wrap mx-3">
+        {ButlerList.map((item, i) => {
+          return (
+            <ButlerLink key={i} to={item.link} className="fadeInUp" style={trail[i + 1]}>
+              <div className="icon"></div>
+              <div className="title">{item.title}</div>
+            </ButlerLink>
+          );
+        })}
       </div>
     </React.Fragment>
   );
 };
 
-export default Profile;
+export default Butler;

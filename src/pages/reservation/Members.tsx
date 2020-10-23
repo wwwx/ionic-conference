@@ -4,6 +4,7 @@ import useSWR from 'swr'
 import { IonButton, IonContent, IonPage } from '@ionic/react'
 import { IonBackButton, IonButtons, IonHeader, IonTitle, IonToolbar } from '@ionic/react'
 
+import AppCard from '../../components/AppCard'
 import fetcher from '../../service/base-service'
 import { ErrorMessage, Loading, NoMore } from '../../components/Common'
 import { MemberItem } from '../../service/mine.model'
@@ -18,7 +19,7 @@ const MemberList: React.FC = () => {
 
   return (
     <>
-      <div className="app-card">
+      <AppCard>
         <div className="pb-3 border-bottom color-666 font-12">共27人，含10位外部人员</div>
         <div className="Members_list">
           {members.map((info: MemberItem, i: number) => {
@@ -38,7 +39,7 @@ const MemberList: React.FC = () => {
             );
           })}
         </div>
-      </div>
+      </AppCard>
       <NoMore />
     </>
   );

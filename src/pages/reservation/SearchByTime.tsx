@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react'
-import { IonButton, IonSelect, IonSelectOption } from '@ionic/react'
+import { IonSelect, IonSelectOption } from '@ionic/react'
 import { useHistory } from 'react-router'
 
+import AppButton from '../../components/AppButton'
 import TimePicker from '../../components/TimePicker'
 import { DatePicker } from '../../components/Calendar'
 
@@ -37,24 +38,14 @@ const SearchByTime: React.FC = () => {
       <div className="app-list">
         <div className="app-item border-bottom">
           <label>会议地点</label>
-          <IonSelect
-            interface="action-sheet"
-            value={address}
-            onIonChange={(e) => setAddress(e.detail.value)}
-            placeholder="请选择"
-          >
+          <IonSelect interface="action-sheet" value={address} onIonChange={(e) => setAddress(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">由由世纪广场1号楼</IonSelectOption>
             <IonSelectOption value="2">由由世纪广场2号楼</IonSelectOption>
           </IonSelect>
         </div>
         <div className="app-item border-bottom">
           <label>会议楼层</label>
-          <IonSelect
-            interface="action-sheet"
-            value={floor}
-            onIonChange={(e) => setFloor(e.detail.value)}
-            placeholder="请选择"
-          >
+          <IonSelect interface="action-sheet" value={floor} onIonChange={(e) => setFloor(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">26楼</IonSelectOption>
             <IonSelectOption value="2">22楼</IonSelectOption>
             <IonSelectOption value="3">21楼</IonSelectOption>
@@ -70,13 +61,7 @@ const SearchByTime: React.FC = () => {
         </div>
       </div>
 
-      <IonButton
-        className="app-button mt-5 mb-4"
-        expand="block"
-        onClick={handleNextClick}
-      >
-        查看可用会议室
-      </IonButton>
+      <AppButton onClick={handleNextClick}>查看可用会议室</AppButton>
     </div>
   );
 };

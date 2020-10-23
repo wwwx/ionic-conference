@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import React, { useState } from 'react'
 import { IonContent, IonPage, IonSlide, IonSlides } from '@ionic/react'
 
+import AppCard from '../../components/AppCard'
 import AppHeader from '../../components/AppHeader'
 import { toDateLocaleString } from '../../components/Calendar'
 import { TimeList } from '../../components/TimePicker'
@@ -68,20 +69,20 @@ const RoomDetail: React.FC = () => {
         <div className="app-block-title">
           <span className="color-111 font-weight-bold">共赢会议室</span>
         </div>
-        <div className="app-card">
+        <AppCard>
           <RoomDetailItem content="由由职场1号楼18F" />
           <RoomDetailItem content="电视机、白板、视频、话筒" />
           <RoomDetailItem content="最多可容纳20人" />
           <RoomDetailItem content="访客请链接“niwodai_guest”按提示完成注册" />
-        </div>
+        </AppCard>
 
         <div className="app-block-title">
           <span className="color-111 font-weight-bold">会议室预定详情</span>
           <span className="color-666 font-14">{toDateLocaleString(date)}</span>
         </div>
-        <div className="app-card">
+        <AppCard>
           <TimeList {...{ time, setTime }} readonly />
-        </div>
+        </AppCard>
       </IonContent>
     </IonPage>
   );

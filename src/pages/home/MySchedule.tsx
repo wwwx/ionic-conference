@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import React, { useState } from 'react'
 import { IonContent, IonPage } from '@ionic/react'
 
+import AppCard from '../../components/AppCard'
 import AppHeader from '../../components/AppHeader'
 import ScheduleList from './ScheduleList'
 import Calendar, { toDateLocaleString } from '../../components/Calendar'
@@ -20,16 +21,16 @@ const MySchedule: React.FC = () => {
     <IonPage className="MySchedule">
       <AppHeader>我的日程</AppHeader>
       <IonContent>
-        <div className="app-card">
+        <AppCard>
           <Calendar value={date} onChange={handleClick} />
-        </div>
+        </AppCard>
         <div className="app-block-title fadeInUp">
           <span className="color-666 font-14">{toDateLocaleString(date)}</span>
         </div>
 
-        <div className="app-card">
+        <AppCard>
           <ScheduleList date={date} />
-        </div>
+        </AppCard>
 
         {/* 空标签 用来增加底部空白空间 */}
         <div className="pb-3"></div>

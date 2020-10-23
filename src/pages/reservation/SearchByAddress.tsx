@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react'
-import { IonButton, IonSelect, IonSelectOption } from '@ionic/react'
+import { IonSelect, IonSelectOption } from '@ionic/react'
 import { useHistory } from 'react-router'
 
+import AppButton from '../../components/AppButton'
 import TimePicker from '../../components/TimePicker'
 import { DatePicker } from '../../components/Calendar'
 
@@ -61,9 +62,7 @@ const SearchByAddress: React.FC = () => {
         </div>
       </div>
 
-      <IonButton className="app-button mt-5 mb-4" expand="block" onClick={nextStep}>
-        下一步
-      </IonButton>
+      <AppButton onClick={nextStep}>下一步</AppButton>
     </div>
   );
 };

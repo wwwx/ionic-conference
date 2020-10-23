@@ -21,6 +21,7 @@ const AvailableRoom = lazy(() => import('./pages/room/AvailableRoom'));
 const RoomDetail = lazy(() => import('./pages/room/RoomDetail'));
 const Mine = lazy(() => import('./pages/mine/Mine'));
 const Record = lazy(() => import('./pages/mine/Record'));
+const RecordDetail = lazy(() => import('./pages/mine/RecordDetail'));
 const Members = lazy(() => import('./pages/reservation/Members'));
 
 interface Page {
@@ -49,6 +50,11 @@ const pages: Page[] = [
     pageLink: '/conference-detail/:type?',
     view: ConferenceDetail,
     displayName: 'ConferenceDetail',
+  },
+  {
+    pageLink: '/record-detail/:type?',
+    view: RecordDetail,
+    displayName: 'RecordDetail',
   },
   {
     pageLink: '/members',
