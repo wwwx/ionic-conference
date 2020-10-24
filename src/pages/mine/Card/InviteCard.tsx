@@ -1,7 +1,6 @@
-import React from 'react'
-
-import Card from './Card'
-import { ICardProps } from './type'
+import React from 'react';
+import Card from './Card';
+import { ICardProps } from './type';
 
 const InviteCard: React.FC<ICardProps> = ({ data, onConfirm, onCancel }) => {
   return (
@@ -26,19 +25,13 @@ const InviteCard: React.FC<ICardProps> = ({ data, onConfirm, onCancel }) => {
       renderButtons={
         <>
           {onConfirm && (
-            <button
-              className="app-card__button confirm"
-              onClick={() => onConfirm()}
-            >
+            <button className="Card__button confirm" onClick={() => onConfirm()}>
               <span>接受邀请</span>
             </button>
           )}
 
           {onCancel && (
-            <button
-              className="app-card__button cancel"
-              onClick={() => onCancel()}
-            >
+            <button className="Card__button cancel" onClick={() => onCancel()}>
               <span className=" border-left">残忍拒绝</span>
             </button>
           )}

@@ -1,9 +1,7 @@
-import './Calendar.scss'
-
-import classnames from 'classnames'
-import React, { useCallback, useState } from 'react'
-
-import Modal from './Modal'
+import classnames from 'classnames';
+import React, { useCallback, useState } from 'react';
+import './Calendar.scss';
+import Modal from './Modal';
 
 type MyDate = {
   year: number;
@@ -28,9 +26,7 @@ const getMyDate = (value: number): MyDate => {
 
 const toDateLocaleString = (value: number) => {
   const { year, month, date, day } = getMyDate(value);
-  return `${year + DateLocale[0]}${month + 1 + DateLocale[1]}${
-    date + DateLocale[2]
-  } 星期${WeekLocale[day]}`;
+  return `${year + DateLocale[0]}${month + 1 + DateLocale[1]}${date + DateLocale[2]} 星期${WeekLocale[day]}`;
 };
 
 type CalendarProps = {
@@ -39,11 +35,7 @@ type CalendarProps = {
   onChange?: (value: number) => void;
 };
 
-const Calendar: React.FC<CalendarProps> = ({
-  readonly = false,
-  value = Date.now(),
-  onChange = (value: number) => {},
-}) => {
+const Calendar: React.FC<CalendarProps> = ({ readonly = false, value = Date.now(), onChange = (value: number) => {} }) => {
   const today = new Date();
   const [date, setDate] = useState<Date>(new Date(value));
 
@@ -51,17 +43,13 @@ const Calendar: React.FC<CalendarProps> = ({
   // console.log(year, month, day) // 2020 9 1
 
   // const currentMonthFirstDay = new Date(year, month, 1)
-  const [currentMonthFirstDay, setCurrentMonthFirthDay] = useState<Date>(
-    new Date(year, month, 1)
-  );
+  const [currentMonthFirstDay, setCurrentMonthFirthDay] = useState<Date>(new Date(year, month, 1));
   // console.log(currentMonthFirstDay) // Thu Oct 01 2020 00:00:00 GMT+0800 (China Standard Time)
 
   const dayOfcurrentMonthFirthDay = currentMonthFirstDay.getDay();
   // console.log(dayOfcurrentMonthFirthDay) // 4
 
-  const startDay = new Date(
-    currentMonthFirstDay.getTime() - dayOfcurrentMonthFirthDay * ONE_DAY
-  );
+  const startDay = new Date(currentMonthFirstDay.getTime() - dayOfcurrentMonthFirthDay * ONE_DAY);
   // console.log(startDay) // Sun Sep 27 2020 00:00:00 GMT+0800 (China Standard Time)
 
   const dateList: Date[] = [];
@@ -112,9 +100,9 @@ const Calendar: React.FC<CalendarProps> = ({
       <div className="Calendar__header">
         <div className="Clendar__title">
           <div className="prev" onClick={handleMonthPrevClick}></div>
-          <div className="title">{`${
-            currentMonthFirstDay.getFullYear() + DateLocale[0]
-          } ${currentMonthFirstDay.getMonth() + 1 + DateLocale[1]}`}</div>
+          <div className="title">{`${currentMonthFirstDay.getFullYear() + DateLocale[0]} ${
+            currentMonthFirstDay.getMonth() + 1 + DateLocale[1]
+          }`}</div>
           <div className="next" onClick={handleMonthNextClick}></div>
         </div>
         <div className="week-list">
@@ -140,36 +128,17 @@ const Calendar: React.FC<CalendarProps> = ({
                   .map((__, j) => {
                     const num = i * 7 + j;
                     const current = dateList[num];
-                    const disabled =
-                      dayOfcurrentMonthFirthDay > num ||
-                      current.getMonth() !== currentMonthFirstDay.getMonth();
-                    const isMonthOfSelected =
-                      current.getMonth() === date.getMonth();
-                    const isThisYear =
-                      current.getFullYear() === date.getFullYear();
-                    const isMonthOfToday =
-                      current.getMonth() === today.getMonth();
-                    const isYearOfToday =
-                      current.getFullYear() === today.getFullYear();
-                    const isActive =
-                      !disabled &&
-                      isThisYear &&
-                      isMonthOfSelected &&
-                      current.getDate() === date.getDate();
-                    const isToday =
-                      !disabled &&
-                      isYearOfToday &&
-                      isMonthOfToday &&
-                      current.getDate() === today.getDate();
+                    const disabled = dayOfcurrentMonthFirthDay > num || current.getMonth() !== currentMonthFirstDay.getMonth();
+                    const isMonthOfSelected = current.getMonth() === date.getMonth();
+                    const isThisYear = current.getFullYear() === date.getFullYear();
+                    const isMonthOfToday = current.getMonth() === today.getMonth();
+                    const isYearOfToday = current.getFullYear() === today.getFullYear();
+                    const isActive = !disabled && isThisYear && isMonthOfSelected && current.getDate() === date.getDate();
+                    const isToday = !disabled && isYearOfToday && isMonthOfToday && current.getDate() === today.getDate();
                     return (
                       <li
                         key={'__' + num}
-                        className={classnames(
-                          'day',
-                          disabled && 'disabled',
-                          isToday && 'today',
-                          isActive && 'active'
-                        )}
+                        className={classnames('day', disabled && 'disabled', isToday && 'today', isActive && 'active')}
                         onClick={() => handleDayClick(current)}
                       >
                         <span>{current.getDate()}</span>
@@ -189,10 +158,7 @@ type DatePickerProps = {
   onChange?: (value: number) => void;
 };
 
-const DatePicker: React.FC<DatePickerProps> = ({
-  value = Date.now(),
-  onChange = (value: number) => {},
-}) => {
+const DatePicker: React.FC<DatePickerProps> = ({ value = Date.now(), onChange = (value: number) => {} }) => {
   const { year, month, date } = getMyDate(value);
   const [visible, setVisible] = useState(false);
 
@@ -209,14 +175,9 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   return (
     <>
-      <input
-        className="CalendarPicker__input"
-        type="text"
-        readOnly
-        placeholder="请输入"
-        value={`${year}-${month + 1}-${date}`}
-        onFocus={handleInputFocus}
-      />
+      <div style={{ flex: '0 0 112px' }}>
+        <input type="text" readOnly placeholder="请输入" value={`${year}-${month + 1}-${date}`} onFocus={handleInputFocus} />
+      </div>
       <Modal
         title="选择日期"
         visible={visible}

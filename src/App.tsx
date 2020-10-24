@@ -1,17 +1,15 @@
-import '@ionic/react/css/core.css'
-import '@ionic/react/css/normalize.css'
-import '@ionic/react/css/structure.css'
-import '@ionic/react/css/typography.css'
-import './App.scss'
-import './mini-bootstrap/index.scss'
-import './theme/variables.css'
-
-import React, { lazy, Suspense } from 'react'
-import { IonApp, IonRouterOutlet } from '@ionic/react'
-import { IonReactRouter } from '@ionic/react-router'
-import { Redirect, Route, Switch } from 'react-router-dom'
-
-import Loading from './components/Loading'
+import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
+import '@ionic/react/css/core.css';
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+import React, { lazy, Suspense } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import './App.scss';
+import Loading from './components/Loading';
+import './mini-bootstrap/index.scss';
+import './theme/variables.css';
 
 const Home = lazy(() => import('./pages/home/Home'));
 const MySchedule = lazy(() => import('./pages/home/MySchedule'));

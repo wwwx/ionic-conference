@@ -1,8 +1,9 @@
-import dayjs from 'dayjs'
-import React from 'react'
-
-import ScheduleList from './ScheduleList'
-import { toDateLocaleString } from '../../components/Calendar'
+import dayjs from 'dayjs';
+import React from 'react';
+import AppBlockTitle from '../../components/AppBlockTitle';
+import AppCard from '../../components/AppCard';
+import { toDateLocaleString } from '../../components/Calendar';
+import ScheduleList from './ScheduleList';
 
 const Schedule: React.FC = () => {
   const DATE_FORMAT = 'YYYY/MM/DD';
@@ -10,13 +11,10 @@ const Schedule: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div className="app-block-title fadeInUp">
-        <span className="color-111 font-weight-bold">今日日程</span>
-        <span className="color-666 font-14">{toDateLocaleString(date)}</span>
-      </div>
-      <div className="app-card" style={{ minHeight: '120px' }}>
+      <AppBlockTitle subtitle={toDateLocaleString(date)}>今日日程</AppBlockTitle>
+      <AppCard style={{ minHeight: '120px' }}>
         <ScheduleList date={date} />
-      </div>
+      </AppCard>
     </React.Fragment>
   );
 };

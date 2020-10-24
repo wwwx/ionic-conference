@@ -1,15 +1,13 @@
-import useSWR from 'swr'
-import React, { useState } from 'react'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-import { useHistory } from 'react-router'
-
-import fetcher from '../../service/base-service'
-import { Empty, ErrorMessage, Loading } from '../../components/Common'
-import { RecordType } from '../../service/enum'
-import { RecordParams } from '../../service/mine.model'
-import { RecordHasNotPublishCard, RecordProcessingCard } from './Card/index'
-
-// import 'react-tabs/style/react-tabs.css'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import useSWR from 'swr';
+import AppCard from '../../components/AppCard';
+import { Empty, ErrorMessage, Loading } from '../../components/Common';
+import fetcher from '../../service/base-service';
+import { RecordType } from '../../service/enum';
+import { RecordParams } from '../../service/mine.model';
+import { RecordHasNotPublishCard, RecordProcessingCard } from './Card/index';
+import { Tab, TabList, TabPanel, Tabs } from './Tabs';
 
 const Conference: React.FC = () => {
   const history = useHistory();
@@ -22,9 +20,9 @@ const Conference: React.FC = () => {
 
   if (!list)
     return (
-      <div className="app-card">
+      <AppCard>
         <Empty />
-      </div>
+      </AppCard>
     );
 
   function handConfirm() {

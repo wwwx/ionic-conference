@@ -1,7 +1,6 @@
-import React from 'react'
-
-import Card from './Card'
-import { ICardProps } from './type'
+import React from 'react';
+import Card from './Card';
+import { ICardProps } from './type';
 
 const RecordCard: React.FC<ICardProps> = ({ data, typeName, onConfirm }) => {
   return (
@@ -28,10 +27,7 @@ const RecordCard: React.FC<ICardProps> = ({ data, typeName, onConfirm }) => {
       renderButtons={
         <>
           {onConfirm && (
-            <button
-              className="app-card__button confirm"
-              onClick={() => onConfirm()}
-            >
+            <button className="Card__button confirm" onClick={() => onConfirm()}>
               <span>查看详情</span>
             </button>
           )}

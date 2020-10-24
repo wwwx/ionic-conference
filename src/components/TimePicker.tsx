@@ -1,9 +1,7 @@
-import './TimePicker.scss'
-
-import classnames from 'classnames'
-import React, { useCallback, useEffect, useState } from 'react'
-
-import Modal from './Modal'
+import classnames from 'classnames';
+import React, { useCallback, useEffect, useState } from 'react';
+import Modal from './Modal';
+import './TimePicker.scss';
 
 export const picklist = [
   '09:00~10:30',
@@ -37,14 +35,7 @@ type ItemProps = {
   readonly?: boolean;
 };
 
-const Item: React.FC<ItemProps> = ({
-  title,
-  isActive,
-  i,
-  time,
-  setTime,
-  readonly = false,
-}) => {
+const Item: React.FC<ItemProps> = ({ title, isActive, i, time, setTime, readonly = false }) => {
   const handleClick = useCallback(() => {
     if (readonly) return;
     const index = time.indexOf(i);
@@ -56,10 +47,7 @@ const Item: React.FC<ItemProps> = ({
   }, [readonly, i, time, setTime]);
 
   return (
-    <div
-      className={classnames('item', isActive ? 'active' : '')}
-      onClick={handleClick}
-    >
+    <div className={classnames('item', isActive ? 'active' : '')} onClick={handleClick}>
       <span className="border">{title}</span>
     </div>
   );
@@ -75,12 +63,7 @@ export const TimeList: React.FC<TimeProps> = ({ readonly, time, setTime }) => {
   return (
     <div className="conference-picklist">
       {picklist.map((item, i) => (
-        <Item
-          title={item}
-          isActive={i >= Math.min(...time) && i <= Math.max(...time)}
-          key={i}
-          {...{ i, time, setTime, readonly }}
-        />
+        <Item title={item} isActive={i >= Math.min(...time) && i <= Math.max(...time)} key={i} {...{ i, time, setTime, readonly }} />
       ))}
     </div>
   );
@@ -104,12 +87,9 @@ const TimePicker: React.FC<TimeProps> = ({ time, setTime }) => {
 
   return (
     <>
-      <span
-        onClick={() => setModalVisible(true)}
-        className={classnames(!title && 'app-select-placeholder')}
-      >
-        {title || '请选择'}
-      </span>
+      <div style={{ flex: '0 0 112px' }}>
+        <input type="text" readOnly placeholder="请选择" value={title} onClick={() => setModalVisible(true)} />
+      </div>
       <Modal
         visible={modalVisible}
         hide={() => setModalVisible(false)}

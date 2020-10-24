@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react'
-
-import AppHeader from '../../components/AppHeader'
-import BackHome from '../../components/BackHome'
-import SearchByAddress from './SearchByAddress'
-import SearchByTime from './SearchByTime'
+import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
+import React, { useEffect, useState } from 'react';
+import AppBackHome from '../../components/AppBackHome';
+import AppHeader from '../../components/AppHeader';
+import SearchByAddress from './SearchByAddress';
+import SearchByTime from './SearchByTime';
 
 // import http from '../../utils/http'
 
@@ -47,7 +46,7 @@ const Reservation: React.FC = () => {
         </IonToolbar>
         {active === 'time' && <SearchByTime />}
         {active === 'address' && <SearchByAddress />}
-        <BackHome />
+        <AppBackHome />
       </IonContent>
     </IonPage>
   );

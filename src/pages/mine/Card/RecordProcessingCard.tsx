@@ -1,15 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
+import { Staff, StaffList } from '../../../components/Staff';
+import { Role } from '../../../service/enum';
+import Card from './Card';
+import { ICardProps } from './type';
 
-import Staff from '../../../components/Staff'
-import Card from './Card'
-import { Role } from '../../../service/enum'
-import { ICardProps } from './type'
-
-const RecordProcessingCard: React.FC<ICardProps> = ({
-  data,
-  typeName,
-  onConfirm,
-}) => {
+const RecordProcessingCard: React.FC<ICardProps> = ({ data, typeName, onConfirm }) => {
   const membersWrapRef = useRef(null);
   const [membetItemSize, setMemberItemSize] = useState(0);
 
@@ -58,21 +53,14 @@ const RecordProcessingCard: React.FC<ICardProps> = ({
           <li>
             <label>会议人员</label>
             <span ref={membersWrapRef}>
-              <div className="members">
-                <Staff
-                  info={data.members.find((item) => item.role === Role.HOST)}
-                />
-                <Staff
-                  info={data.members.find(
-                    (item) => item.role === Role.RECORDED
-                  )}
-                />
-              </div>
+              <StaffList>
+                <Staff info={data.members.find((item) => item.role === Role.HOST)} />
+                <Staff info={data.members.find((item) => item.role === Role.RECORDED)} />
+              </StaffList>
 
-              <div className="members nowrap">
+              <StaffList className="nowrap">
                 {data.members.map((item, i) => {
-                  if (item.role === Role.HOST || item.role === Role.RECORDED)
-                    return null;
+                  if (item.role === Role.HOST || item.role === Role.RECORDED) return null;
                   if (i > membetItemSize) {
                     // 超过第6个人不显示
                   } else if (i === membetItemSize) {
@@ -87,7 +75,7 @@ const RecordProcessingCard: React.FC<ICardProps> = ({
                   }
                   return null;
                 })}
-              </div>
+              </StaffList>
             </span>
           </li>
         </ul>
@@ -95,10 +83,7 @@ const RecordProcessingCard: React.FC<ICardProps> = ({
       renderButtons={
         <>
           {onConfirm && (
-            <button
-              className="app-card__button confirm"
-              onClick={() => onConfirm()}
-            >
+            <button className="Card__button confirm" onClick={() => onConfirm()}>
               <span>查看详情</span>
             </button>
           )}

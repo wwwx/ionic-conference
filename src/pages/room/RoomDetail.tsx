@@ -1,24 +1,22 @@
-import dayjs from 'dayjs'
-import React, { useState } from 'react'
-import { IonContent, IonPage, IonSlide, IonSlides } from '@ionic/react'
+import { IonContent, IonPage, IonSlide, IonSlides } from '@ionic/react';
+import dayjs from 'dayjs';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import AppBlockTitle from '../../components/AppBlockTitle';
+import AppCard from '../../components/AppCard';
+import AppHeader from '../../components/AppHeader';
+import { toDateLocaleString } from '../../components/Calendar';
+import { TimeList } from '../../components/TimePicker';
 
-import AppCard from '../../components/AppCard'
-import AppHeader from '../../components/AppHeader'
-import { toDateLocaleString } from '../../components/Calendar'
-import { TimeList } from '../../components/TimePicker'
+const CarsouelWrap = styled.div`
+  overflow: hidden;
 
-type RoomDetailItemProps = {
-  content: string;
-};
-
-function RoomDetailItem(props: RoomDetailItemProps) {
-  return (
-    <div className="RoomDetailItem color-333 font-14 mb-3">
-      <i className="icon"></i>
-      <span>{props.content}</span>
-    </div>
-  );
-}
+  .swiper-pagination-bullet {
+    border-radius: 0;
+    width: 10px;
+    height: 2px;
+  }
+`;
 
 function Carousel() {
   const roomList = [
@@ -41,15 +39,46 @@ function Carousel() {
     backgroundPosition: 'center',
   };
   return (
-    <IonSlides pager={true} options={slideOpts}>
-      {roomList.map((room, i) => {
-        return (
-          <IonSlide key={i}>
-            <div style={{ ...RoomStyle, backgroundImage: `url(${room.imgUrl})` }}></div>
-          </IonSlide>
-        );
-      })}
-    </IonSlides>
+    <CarsouelWrap>
+      <IonSlides pager={true} options={slideOpts}>
+        {roomList.map((room, i) => {
+          return (
+            <IonSlide key={i}>
+              <div style={{ ...RoomStyle, backgroundImage: `url(${room.imgUrl})` }}></div>
+            </IonSlide>
+          );
+        })}
+      </IonSlides>
+    </CarsouelWrap>
+  );
+}
+
+const RoomDetailItemWrap = styled.div`
+  display: flex;
+  align-items: center;
+  color: #333333;
+  margin-bottom: 1rem;
+  font-size: 14px;
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #cccccc;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+  }
+`;
+
+type RoomDetailItemProps = {
+  content: string;
+};
+
+function RoomDetailItem(props: RoomDetailItemProps) {
+  return (
+    <RoomDetailItemWrap>
+      <i className="icon"></i>
+      <span>{props.content}</span>
+    </RoomDetailItemWrap>
   );
 }
 
@@ -65,21 +94,14 @@ const RoomDetail: React.FC = () => {
         <div className="carousel-wrap rounded m-3">
           <Carousel />
         </div>
-
-        <div className="app-block-title">
-          <span className="color-111 font-weight-bold">共赢会议室</span>
-        </div>
+        <AppBlockTitle>共赢会议室</AppBlockTitle>
         <AppCard>
           <RoomDetailItem content="由由职场1号楼18F" />
           <RoomDetailItem content="电视机、白板、视频、话筒" />
           <RoomDetailItem content="最多可容纳20人" />
           <RoomDetailItem content="访客请链接“niwodai_guest”按提示完成注册" />
         </AppCard>
-
-        <div className="app-block-title">
-          <span className="color-111 font-weight-bold">会议室预定详情</span>
-          <span className="color-666 font-14">{toDateLocaleString(date)}</span>
-        </div>
+        <AppBlockTitle subtitle={toDateLocaleString(date)}>会议室预定详情</AppBlockTitle>
         <AppCard>
           <TimeList {...{ time, setTime }} readonly />
         </AppCard>

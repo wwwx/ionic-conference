@@ -1,14 +1,72 @@
-import classnames from 'classnames'
-import React from 'react'
-import useSWR from 'swr'
-import { IonButton, IonContent, IonPage } from '@ionic/react'
-import { IonBackButton, IonButtons, IonHeader, IonTitle, IonToolbar } from '@ionic/react'
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import classnames from 'classnames';
+import React from 'react';
+import styled from 'styled-components';
+import useSWR from 'swr';
+import AppCard from '../../components/AppCard';
+import { ErrorMessage, Loading, NoMore } from '../../components/Common';
+import fetcher from '../../service/base-service';
+import { MemberItem } from '../../service/mine.model';
+import { getRoleName } from '../../utils/commonFunctions';
 
-import AppCard from '../../components/AppCard'
-import fetcher from '../../service/base-service'
-import { ErrorMessage, Loading, NoMore } from '../../components/Common'
-import { MemberItem } from '../../service/mine.model'
-import { getRoleName } from '../../utils/commonFunctions'
+const MemberListWrap = styled(AppCard)`
+  ._item {
+    display: flex;
+
+    &.inline {
+      display: inline-block;
+      height: 42px;
+    }
+
+    .avatar {
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      background-color: #cccccc;
+      background-image: url('/images/avatar.jpeg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 2px;
+      margin-right: 12px;
+    }
+
+    .info {
+      flex: 1 1 0%;
+
+      .top {
+        display: flex;
+        margin-bottom: 8px;
+
+        .name {
+          font-weight: bold;
+          margin-right: 12px;
+          color: #333333;
+        }
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .role {
+          border-radius: 2px;
+          padding: 1px 0.5rem;
+          color: #676767;
+          font-size: 12px;
+        }
+
+        .dept {
+          color: #676767;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+`;
 
 const MemberList: React.FC = () => {
   const { error, data } = useSWR('/api/participants', fetcher.get);
@@ -19,12 +77,12 @@ const MemberList: React.FC = () => {
 
   return (
     <>
-      <AppCard>
+      <MemberListWrap>
         <div className="pb-3 border-bottom color-666 font-12">共27人，含10位外部人员</div>
-        <div className="Members_list">
+        <div>
           {members.map((info: MemberItem, i: number) => {
             return (
-              <div className="Members_item border-bottom py-3" key={i}>
+              <div className="_item border-bottom py-3" key={i}>
                 <div className="avatar"></div>
                 <div className="info">
                   <div className="top">
@@ -39,7 +97,7 @@ const MemberList: React.FC = () => {
             );
           })}
         </div>
-      </AppCard>
+      </MemberListWrap>
       <NoMore />
     </>
   );

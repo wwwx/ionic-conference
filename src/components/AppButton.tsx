@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { IonButton } from '@ionic/react'
+import { IonButton } from '@ionic/react';
+import styled from 'styled-components';
 
 const AppButton = styled(IonButton).attrs(() => ({
   expand: 'block',

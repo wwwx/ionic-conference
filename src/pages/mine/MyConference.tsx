@@ -1,12 +1,12 @@
-import useSWR from 'swr'
-import React, { useState } from 'react'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-
-import fetcher from '../../service/base-service'
-import { Empty, ErrorMessage, Loading } from '../../components/Common'
-import { ConferenceType } from '../../service/enum'
-import { MineCardParams } from '../../service/mine.model'
-import { ConferenceFinishedCard, ConferenceHasNotStartCard, ConferenceProcessingCard } from './Card/index'
+import React, { useState } from 'react';
+import useSWR from 'swr';
+import AppCard from '../../components/AppCard';
+import { Empty, ErrorMessage, Loading } from '../../components/Common';
+import fetcher from '../../service/base-service';
+import { ConferenceType } from '../../service/enum';
+import { MineCardParams } from '../../service/mine.model';
+import { ConferenceFinishedCard, ConferenceHasNotStartCard, ConferenceProcessingCard } from './Card/index';
+import { Tab, TabList, TabPanel, Tabs } from './Tabs';
 
 // import 'react-tabs/style/react-tabs.css'
 
@@ -20,9 +20,9 @@ const Conference: React.FC = () => {
 
   if (!list)
     return (
-      <div className="app-card">
+      <AppCard>
         <Empty />
-      </div>
+      </AppCard>
     );
 
   function handConfirm() {
@@ -40,7 +40,7 @@ const Conference: React.FC = () => {
   const processingData = list.filter((item: MineCardParams) => item.type === ConferenceType.PROCESSING);
 
   return (
-    <Tabs className="Mine-Conference" selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+    <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
       <TabList>
         <Tab>未开始</Tab>
         <Tab>进行中</Tab>

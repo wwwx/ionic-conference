@@ -1,10 +1,10 @@
-import React from 'react'
-import useSWR from 'swr'
-
-import fetcher from '../../service/base-service'
-import { InviteCard } from './Card/index'
-import { Empty, ErrorMessage, Loading } from '../../components/Common'
-import { MineCardParams } from '../../service/mine.model'
+import React from 'react';
+import useSWR from 'swr';
+import AppCard from '../../components/AppCard';
+import { Empty, ErrorMessage, Loading } from '../../components/Common';
+import fetcher from '../../service/base-service';
+import { MineCardParams } from '../../service/mine.model';
+import { InviteCard } from './Card/index';
 
 const Invite: React.FC = () => {
   const { data, error } = useSWR('/api/invite-list', fetcher.get);
@@ -16,9 +16,9 @@ const Invite: React.FC = () => {
 
   if (!list)
     return (
-      <div className="app-card">
+      <AppCard>
         <Empty />
-      </div>
+      </AppCard>
     );
 
   function handConfirm() {

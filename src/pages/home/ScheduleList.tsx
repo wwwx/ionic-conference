@@ -1,10 +1,35 @@
-import React from 'react'
-import useSWR from 'swr'
-import { IonAvatar, IonButton } from '@ionic/react'
-import { useHistory } from 'react-router'
+import { IonAvatar, IonButton } from '@ionic/react';
+import React from 'react';
+import { useHistory } from 'react-router';
+import styled from 'styled-components';
+import useSWR from 'swr';
+import { Empty, ErrorMessage, Loading } from '../../components/Common';
+import fetcher from '../../service/base-service';
 
-import fetcher from '../../service/base-service'
-import { Empty, ErrorMessage, Loading } from '../../components/Common'
+const StyledWrap = styled.div`
+  .meetingType {
+    flex: 0 0 56px;
+  }
+  .meetingViewButton {
+    width: 58px;
+    text-align: right;
+  }
+  .item {
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+    ion-button {
+      height: 24px;
+      --border-radius: 24px;
+    }
+    ion-avatar {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+    }
+  }
+`;
 
 type ScheduleParams = {
   status: number;
@@ -44,9 +69,9 @@ const ScheduleItem: React.FC<ScheduleItemProps> = (props) => {
     ...props.data,
     ...getStatusOptions(props.data.status),
   };
-  const history = useHistory()
+  const history = useHistory();
   function showDetail() {
-    history.push('/conference-detail/edit')
+    history.push('/conference-detail/edit');
   }
   return (
     <div className="item mb-3 border-bottom pb-3 fadeInUp" style={props.style} onClick={showDetail}>
@@ -86,7 +111,7 @@ const ScheduleList: React.FC<ScheduleListProps> = (props) => {
   if (!listData) return <Empty />;
 
   return (
-    <div className="Schedule">
+    <StyledWrap>
       {listData.map((_: ScheduleParams, i: number) => (
         <ScheduleItem
           data={_}
@@ -96,7 +121,7 @@ const ScheduleList: React.FC<ScheduleListProps> = (props) => {
           key={i}
         />
       ))}
-    </div>
+    </StyledWrap>
   );
 };
 

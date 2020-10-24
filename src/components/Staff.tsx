@@ -1,10 +1,9 @@
-import './Staff.scss'
-
-import classnames from 'classnames'
-import React from 'react'
-
-import { MemberItem } from '../service/mine.model'
-import { getRoleName } from '../utils/commonFunctions'
+import classnames from 'classnames';
+import React from 'react';
+import styld from 'styled-components';
+import { MemberItem } from '../service/mine.model';
+import { getRoleName } from '../utils/commonFunctions';
+import './Staff.scss';
 
 type StaffProps = {
   info?: MemberItem;
@@ -37,5 +36,22 @@ const Staff: React.FC<StaffProps> = ({ info }) => {
   );
 };
 
+const StaffList = styld.div`
+display: flex;
+    flex-wrap: wrap;
 
-export default Staff;
+    &.nowrap {
+      // flex-wrap: nowrap;
+
+      .Staff {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    .Staff:not(.inline) {
+      width: 100%;
+    }
+`;
+
+export { StaffList, Staff };

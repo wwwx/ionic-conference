@@ -1,6 +1,7 @@
-import styled from 'styled-components'
-import React, { useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import AppBlockTitle from '../../components/AppBlockTitle';
 
 const ButlerLink = styled(Link)`
   position: relative;
@@ -55,9 +56,9 @@ const Butler: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div className="app-block-title fadeInUp" style={trail[0]}>
-        <span className="color-111 font-weight-bold">会议管家</span>
-      </div>
+      <AppBlockTitle className="fadeInUp" style={trail[0]}>
+        会议管家
+      </AppBlockTitle>
       <div className="d-flex flex-wrap mx-3">
         {ButlerList.map((item, i) => {
           return (

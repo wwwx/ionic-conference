@@ -1,12 +1,12 @@
-import useSWR from 'swr'
-import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
-
-import fetcher from '../../service/base-service'
-import { Empty, ErrorMessage, Loading } from '../../components/Common'
-import { RecordType } from '../../service/enum'
-import { MineCardParams, RecordParams } from '../../service/mine.model'
-import { RecordPublishedCard } from './Card/index'
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import useSWR from 'swr';
+import AppCard from '../../components/AppCard';
+import { Empty, ErrorMessage, Loading } from '../../components/Common';
+import fetcher from '../../service/base-service';
+import { RecordType } from '../../service/enum';
+import { MineCardParams, RecordParams } from '../../service/mine.model';
+import { RecordPublishedCard } from './Card/index';
 
 const Invite: React.FC = () => {
   const history = useHistory();
@@ -26,9 +26,9 @@ const Invite: React.FC = () => {
 
   if (!data)
     return (
-      <div className="app-card">
+      <AppCard>
         <Empty />
-      </div>
+      </AppCard>
     );
 
   function handConfirm() {

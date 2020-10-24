@@ -1,14 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Card from './Card';
+import { ICardProps } from './type';
 
-import Card from './Card'
-import { ICardProps } from './type'
-
-const ConferenceHasNotStartCard: React.FC<ICardProps> = ({
-  data,
-  typeName,
-  onConfirm,
-  onCancel,
-}) => {
+const ConferenceHasNotStartCard: React.FC<ICardProps> = ({ data, typeName, onConfirm, onCancel }) => {
   return (
     <Card
       typeName={typeName}
@@ -33,19 +27,13 @@ const ConferenceHasNotStartCard: React.FC<ICardProps> = ({
       renderButtons={
         <>
           {onCancel && (
-            <button
-              className="app-card__button cancel"
-              onClick={() => onCancel()}
-            >
+            <button className="Card__button cancel" onClick={() => onCancel()}>
               <span className=" border-left">取消预订</span>
             </button>
           )}
 
           {onConfirm && (
-            <button
-              className="app-card__button confirm"
-              onClick={() => onConfirm()}
-            >
+            <button className="Card__button confirm" onClick={() => onConfirm()}>
               <span>查看详情</span>
             </button>
           )}

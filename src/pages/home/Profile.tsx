@@ -1,9 +1,9 @@
-import useSWR from 'swr'
-import React, { useMemo } from 'react'
-import { IonAvatar, IonButton, IonCard, IonCardContent, IonSelect, IonSelectOption, IonText } from '@ionic/react'
-import { Link } from 'react-router-dom'
-
-import fetcher from '../../service/base-service'
+import { IonAvatar, IonButton, IonCard, IonCardContent, IonSelect, IonSelectOption, IonText } from '@ionic/react';
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import useSWR from 'swr';
+import fetcher from '../../service/base-service';
 
 function ProfileContent() {
   const trail = useMemo(() => {
@@ -43,6 +43,7 @@ function ProfileContent() {
             placeholder="Select One"
             // onIonChange={e => setColor(e.detail.value)}
             // value={color}
+            style={{ '--padding-start': 0, '--padding-end': 0 }}
           >
             <IonSelectOption value="red">Red</IonSelectOption>
             <IonSelectOption value="purple">Purple</IonSelectOption>
@@ -78,15 +79,22 @@ function ProfileContent() {
   );
 }
 
+const ProfileWrap = styled.div`
+  min-height: 160px;
+  ion-card-content {
+    height: 160px;
+  }
+`;
+
 const Profile: React.FC = () => {
   return (
-    <div className="Profile mt-5 fadeInUp">
+    <ProfileWrap className="mt-5 fadeInUp">
       <IonCard>
         <IonCardContent>
           <ProfileContent />
         </IonCardContent>
       </IonCard>
-    </div>
+    </ProfileWrap>
   );
 };
 

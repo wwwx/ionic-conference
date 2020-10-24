@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from 'react'
-import { IonSelect, IonSelectOption } from '@ionic/react'
-import { useHistory } from 'react-router'
-
-import AppButton from '../../components/AppButton'
-import TimePicker from '../../components/TimePicker'
-import { DatePicker } from '../../components/Calendar'
+import { IonSelect, IonSelectOption } from '@ionic/react';
+import React, { useCallback, useState } from 'react';
+import { useHistory } from 'react-router';
+import AppButton from '../../components/AppButton';
+import AppList from '../../components/AppList';
+import AppListItem from '../../components/AppListItem';
+import { DatePicker } from '../../components/Calendar';
+import TimePicker from '../../components/TimePicker';
 
 const SearchByAddress: React.FC = () => {
   const history = useHistory();
@@ -24,43 +25,37 @@ const SearchByAddress: React.FC = () => {
 
   return (
     <div className="mx-3">
-      <div className="app-list">
-        <div className="app-item border-bottom">
-          <label className="required">会议地点</label>
+      <AppList>
+        <AppListItem label="会议地点" required>
           <IonSelect interface="action-sheet" value={address} onIonChange={(e) => setAddress(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">由由世纪广场1号楼</IonSelectOption>
             <IonSelectOption value="2">由由世纪广场2号楼</IonSelectOption>
           </IonSelect>
-        </div>
-        <div className="app-item border-bottom">
-          <label className="required">会议楼层</label>
+        </AppListItem>
+        <AppListItem label="会议楼层" required>
           <IonSelect interface="action-sheet" value={floor} onIonChange={(e) => setFloor(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">26楼</IonSelectOption>
             <IonSelectOption value="2">22楼</IonSelectOption>
             <IonSelectOption value="3">21楼</IonSelectOption>
             <IonSelectOption value="4">19楼</IonSelectOption>
           </IonSelect>
-        </div>
-        <div className="app-item border-bottom">
-          <label className="required">会议室名称</label>
+        </AppListItem>
+        <AppListItem label="会议室名称" required>
           <IonSelect interface="action-sheet" value={room} onIonChange={(e) => setRoom(e.detail.value)} placeholder="请选择">
             <IonSelectOption value="1">同心</IonSelectOption>
             <IonSelectOption value="2">共赢</IonSelectOption>
             <IonSelectOption value="3">华尔街</IonSelectOption>
           </IonSelect>
-        </div>
-      </div>
-
-      <div className="app-list">
-        <div className="app-item border-bottom">
-          <label>会议日期</label>
+        </AppListItem>
+      </AppList>
+      <AppList>
+        <AppListItem label="会议日期">
           <DatePicker value={date} onChange={handDateClick} />
-        </div>
-        <div className="app-item border-bottom">
-          <label>会议时间</label>
+        </AppListItem>
+        <AppListItem label="会议时间">
           <TimePicker {...{ time, setTime }} />
-        </div>
-      </div>
+        </AppListItem>
+      </AppList>
 
       <AppButton onClick={nextStep}>下一步</AppButton>
     </div>

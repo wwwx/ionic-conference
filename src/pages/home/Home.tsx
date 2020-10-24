@@ -1,59 +1,56 @@
-import React, { lazy, Suspense } from 'react'
-import { IonContent, IonItem, IonLabel, IonPage, IonToggle } from '@ionic/react'
-
-import AppHeader from '../../components/AppHeader'
+import { IonContent, IonPage } from '@ionic/react';
+import React, { lazy, Suspense } from 'react';
+import styled from 'styled-components';
+import AppHeader from '../../components/AppHeader';
 
 const Profile = lazy(() => import('./Profile'));
 const Butler = lazy(() => import('./Butler'));
 const Schedule = lazy(() => import('./Schedule'));
+
+const TopBg = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 72px;
+  background-color: var(--ion-color-primary);
+`;
+
+const ContactUsWrap = styled.div`
+  margin: 25px auto 35px;
+  padding-left: 34px;
+  height: 23px;
+  width: 102px;
+  font-size: 14px;
+  background-image: url('/images/icon_call@2x.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+`;
 
 const Home: React.FC = () => {
   return (
     <IonPage className="Home">
       <AppHeader showBackButton={false}>会议管理</AppHeader>
       <IonContent>
-        <div className="hello"></div>
-
+        <TopBg />
         <Suspense fallback={<div />}>
           <Profile />
         </Suspense>
-
         <Suspense fallback={<div />}>
           <Butler />
         </Suspense>
-
         <Suspense fallback={<div />}>
           <Schedule />
         </Suspense>
-
         <ContactUs />
-
-        {false && <DarkSwitch />}
       </IonContent>
     </IonPage>
   );
 };
 
 const ContactUs: React.FC = () => {
-  return <div className="contactUs fadeInUp">联系我们</div>;
+  return <ContactUsWrap className="fadeInUp">联系我们</ContactUsWrap>;
 };
 
-// TODO use Dark Theme
-const DarkSwitch: React.FC = () => {
-  // Query for the toggle that is used to change between themes
-  const toggle = document.querySelector('#themeToggle');
-
-  // Listen for the toggle check/uncheck to toggle the dark class on the <body>
-  toggle &&
-    toggle.addEventListener('ionChange', (ev: any) => {
-      document.body.classList.toggle('dark', ev.detail.checked);
-    });
-
-  return (
-    <IonItem className="mb-3">
-      <IonLabel>Toggle Dark Theme</IonLabel>
-      <IonToggle id="themeToggle"></IonToggle>
-    </IonItem>
-  );
-};
 export default Home;
