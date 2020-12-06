@@ -1,12 +1,12 @@
-import { IonContent, IonPage, IonSlide, IonSlides } from '@ionic/react';
-import dayjs from 'dayjs';
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import AppBlockTitle from '../../components/AppBlockTitle';
-import AppCard from '../../components/AppCard';
-import AppHeader from '../../components/AppHeader';
-import { toDateLocaleString } from '../../components/Calendar';
-import { TimeList } from '../../components/TimePicker';
+import dayjs from 'dayjs'
+import styled from 'styled-components'
+import React, { useState } from 'react'
+import { IonSlide, IonSlides } from '@ionic/react'
+
+import AppBlockTitle from '../../components/AppBlockTitle'
+import AppCard from '../../components/AppCard'
+import { toDateLocaleString } from '../../components/Calendar'
+import { TimeList } from '../../components/TimePicker'
 
 const CarsouelWrap = styled.div`
   overflow: hidden;
@@ -88,25 +88,22 @@ const RoomDetail: React.FC = () => {
   const date = new Date(dayjs().format(DATE_FORMAT)).getTime();
 
   return (
-    <IonPage className="RoomDetail">
-      <AppHeader>共赢会议室</AppHeader>
-      <IonContent>
-        <div className="carousel-wrap rounded m-3">
-          <Carousel />
-        </div>
-        <AppBlockTitle>共赢会议室</AppBlockTitle>
-        <AppCard>
-          <RoomDetailItem content="由由职场1号楼18F" />
-          <RoomDetailItem content="电视机、白板、视频、话筒" />
-          <RoomDetailItem content="最多可容纳20人" />
-          <RoomDetailItem content="访客请链接“niwodai_guest”按提示完成注册" />
-        </AppCard>
-        <AppBlockTitle subtitle={toDateLocaleString(date)}>会议室预定详情</AppBlockTitle>
-        <AppCard>
-          <TimeList {...{ time, setTime }} readonly />
-        </AppCard>
-      </IonContent>
-    </IonPage>
+    <>
+      <div className="carousel-wrap rounded m-3">
+        <Carousel />
+      </div>
+      <AppBlockTitle>共赢会议室</AppBlockTitle>
+      <AppCard>
+        <RoomDetailItem content="由由职场1号楼18F" />
+        <RoomDetailItem content="电视机、白板、视频、话筒" />
+        <RoomDetailItem content="最多可容纳20人" />
+        <RoomDetailItem content="访客请链接“niwodai_guest”按提示完成注册" />
+      </AppCard>
+      <AppBlockTitle subtitle={toDateLocaleString(date)}>会议室预定详情</AppBlockTitle>
+      <AppCard>
+        <TimeList {...{ time, setTime }} readonly />
+      </AppCard>
+    </>
   );
 };
 

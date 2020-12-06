@@ -1,32 +1,30 @@
-import { IonContent, IonPage } from '@ionic/react';
-import classnames from 'classnames';
-import React, { useCallback, useState } from 'react';
-import { useParams } from 'react-router';
-import styld from 'styled-components';
-import useSWR from 'swr';
-import AppButton from '../../components/AppButton';
-import AppCard from '../../components/AppCard';
-import AppHeader from '../../components/AppHeader';
-import AppInput from '../../components/AppInput';
-import AppSelect, { SelectOption } from '../../components/AppSelect';
-import { ErrorMessage, Loading } from '../../components/Common';
-import useInput from '../../hooks/useInput';
-import useSelect from '../../hooks/useSelect';
-import fetcher from '../../service/base-service';
-import { MemberItem } from '../../service/mine.model';
-import { ConferenceDetailRouteParams } from '../../service/reservation.model';
-import { RemindOptions } from '../options';
-import AppMemberSelect from './components/AppMemberSelect';
+import styld from 'styled-components'
+import useSWR from 'swr'
+import React, { useCallback, useState } from 'react'
+import { useParams } from 'react-router'
+
+import AppButton from '../../components/AppButton'
+import AppCard from '../../components/AppCard'
+import AppInput from '../../components/AppInput'
+import useInput from '../../hooks/useInput'
+import useSelect from '../../hooks/useSelect'
+import fetcher from '../../service/base-service'
+import AppMemberSelect from './components/AppMemberSelect'
+import AppSelect, { SelectOption } from '../../components/AppSelect'
+import { ErrorMessage, Loading } from '../../components/Common'
+import { MemberItem } from '../../service/mine.model'
+import { ConferenceDetailRouteParams } from '../../service/reservation.model'
+import { RemindOptions } from '../options'
 
 const MainWrap = styld.div`
-margin-top: 75px;
-.checkbox {
-  color: #A7A7A7;
-  font-size: 12px;
-  input {
-    vertical-align: middle;
+  margin-top: 75px;
+  .checkbox {
+    color: #A7A7A7;
+    font-size: 12px;
+    input {
+      vertical-align: middle;
+    }
   }
-}
 `;
 
 type MainFormProps = {
@@ -182,17 +180,14 @@ const BgWrap: React.FC = () => {
 };
 
 const ConferenceDetail: React.FC = () => {
-  const room = '共赢会议室';
+  // const room = '共赢会议室';
   const { type } = useParams<ConferenceDetailRouteParams>();
   // console.log(type);
   return (
-    <IonPage className={classnames('Reservation')}>
-      <AppHeader>{room}</AppHeader>
-      <IonContent className="ConferenceDetail">
-        <BgWrap />
-        {type === 'edit' ? <EditForm /> : <CreateForm />}
-      </IonContent>
-    </IonPage>
+    <>
+      <BgWrap />
+      {type === 'edit' ? <EditForm /> : <CreateForm />}
+    </>
   );
 };
 
