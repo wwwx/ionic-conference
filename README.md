@@ -19,3 +19,17 @@
 - textarea 输入文字超出初始高度时，高度自适应
 - 预订会议 tab 切换方式，是否可以不使用 url 参数
 - sytled-components 插件 ，将现有的 APP.scss 里面的现有 css 替换到各自组件里，APP.scss 只保留全局组件样式
+
+
+### deploy.sh
+#!/usr/bin/env sh
+
+set -e
+
+npm run build
+
+git add .
+
+git commit -m "deploy"
+
+git push
