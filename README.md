@@ -2,13 +2,14 @@
 
 - 【会议预定】缓存输入后的筛选条件
 - 添加代码自动格式化配置 prettier （已添加）
+- 公共头部组件（AppHeader）的设置标题 返回功能
 
 ### Bug
 
 - 点击返回按钮，返回到上一页时 页面的返回按钮丢失 (已解决，IonBackButton 添加 defaultHref 属性)
 - package.json 无法显示新增的 npm 包（dayjs react-tabs @types/react-tabs styled-components）
 - 会议室预定，选择日期时间不能小于当前时间
-- 某些浏览器中 IonSelect 组件的箭头 icon 写了隐藏样式但是还是显示出来了
+- QQ 浏览器中 IonSelect 组件的箭头 icon 写了隐藏样式但是还是显示出来了
 
 ### Improve
 
