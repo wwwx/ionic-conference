@@ -6,6 +6,6 @@ npm run build
 
 git add .
 
-git commit
+git commit -m "deploy"
 
 git push
