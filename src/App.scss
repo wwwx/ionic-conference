@@ -20,6 +20,10 @@ ion-select {
   }
 }
 
+ion-router-outlet {
+  overflow: scroll;
+}
+
 // Common css
 
 

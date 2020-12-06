@@ -1,15 +1,18 @@
-import { IonApp, IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import '@ionic/react/css/core.css';
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-import React, { lazy, Suspense } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import './App.scss';
-import Loading from './components/Loading';
-import './mini-bootstrap/index.scss';
-import './theme/variables.css';
+import '@ionic/react/css/core.css'
+import '@ionic/react/css/normalize.css'
+import '@ionic/react/css/structure.css'
+import '@ionic/react/css/typography.css'
+import './App.scss'
+import './mini-bootstrap/index.scss'
+import './theme/variables.css'
+
+import React, { lazy, Suspense } from 'react'
+import { IonApp, IonContent, IonPage, IonRouterOutlet } from '@ionic/react'
+import { IonReactRouter } from '@ionic/react-router'
+import { Redirect, Route, Switch } from 'react-router-dom'
+
+import AppHeader from './components/AppHeader'
+import Loading from './components/Loading'
 
 const Home = lazy(() => import('./pages/home/Home'));
 const MySchedule = lazy(() => import('./pages/home/MySchedule'));
@@ -88,18 +91,21 @@ const pages: Page[] = [
 
 const App: React.FC = () => (
   <IonApp>
-    <Suspense fallback={<Loading />}>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Switch>
-            {pages.map((page, i) => {
-              return <Route exact={true} path={page.pageLink} render={() => <page.view />} key={i} />;
-            })}
-            <Redirect to="/" />
-          </Switch>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </Suspense>
+    <IonPage>
+      <AppHeader showBackButton={true}>TODO: Display Page Title</AppHeader>
+      <IonContent>
+        <Suspense fallback={<Loading />}>
+          <IonReactRouter>
+            <IonRouterOutlet>
+              <Switch>
+                {pages.map((page, i) => <Route exact={true} path={page.pageLink} render={() => <page.view />} key={i} />)}
+                <Redirect to="/" />
+              </Switch>
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </Suspense>
+      </IonContent>
+    </IonPage>
   </IonApp>
 );
 

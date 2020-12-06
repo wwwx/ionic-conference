@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IonButton, IonChip, IonContent, IonPage } from '@ionic/react'
+import { IonButton, IonChip } from '@ionic/react'
 import { useHistory } from 'react-router'
 
 import AppCard from '../../components/AppCard'
-import AppHeader from '../../components/AppHeader'
 import { NoMore } from '../../components/Common'
 
 const Button = styled(IonButton)`
   --border-radius: 24px;
-  height: 3rem;
+  height: 3rem;ß
   font-size: 1rem;
   flex: 1;
 `;
@@ -89,18 +88,17 @@ const Item: React.FC = () => {
   );
 };
 
+/**
+ *  可用会议室
+ *
+ * @return {*} 
+ */
 const AvailableRoom: React.FC = () => {
   return (
-    <IonPage className="AvailableRoom">
-      <AppHeader> 可用会议室</AppHeader>
-      <IonContent>
-        {[0, 0, 0, 0, 0, 0, 0].map((_, i) => (
-          <Item key={i} />
-        ))}
-
-        <NoMore />
-      </IonContent>
-    </IonPage>
+    <>
+      {[0, 0, 0, 0, 0, 0, 0].map((_, i) => (<Item key={i} />))}
+      <NoMore />
+    </>
   );
 };
 

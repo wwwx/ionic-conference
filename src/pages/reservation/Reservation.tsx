@@ -1,12 +1,17 @@
-import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
-import AppBackHome from '../../components/AppBackHome';
-import AppHeader from '../../components/AppHeader';
-import SearchByAddress from './SearchByAddress';
-import SearchByTime from './SearchByTime';
+import React, { useEffect, useState } from 'react'
+import { IonLabel, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react'
+
+import AppBackHome from '../../components/AppBackHome'
+import SearchByAddress from './SearchByAddress'
+import SearchByTime from './SearchByTime'
 
 // import http from '../../utils/http'
 
+/**
+ * 会议预定
+ *
+ * @return {*} 
+ */
 const Reservation: React.FC = () => {
   const tabsConfig = [
     {
@@ -32,23 +37,20 @@ const Reservation: React.FC = () => {
   }, []);
 
   return (
-    <IonPage className="Reservation">
-      <AppHeader>会议预定</AppHeader>
-      <IonContent>
-        <IonToolbar>
-          <IonSegment mode="md" value={active} onIonChange={(e: any) => handleTabsChange(e.detail.value)}>
-            {tabsConfig.map((tab) => (
-              <IonSegmentButton key={tab.value} value={tab.value}>
-                <IonLabel>{tab.label}</IonLabel>
-              </IonSegmentButton>
-            ))}
-          </IonSegment>
-        </IonToolbar>
-        {active === 'time' && <SearchByTime />}
-        {active === 'address' && <SearchByAddress />}
-        <AppBackHome />
-      </IonContent>
-    </IonPage>
+    <>
+      <IonToolbar>
+        <IonSegment mode="md" value={active} onIonChange={(e: any) => handleTabsChange(e.detail.value)}>
+          {tabsConfig.map((tab) => (
+            <IonSegmentButton key={tab.value} value={tab.value}>
+              <IonLabel>{tab.label}</IonLabel>
+            </IonSegmentButton>
+          ))}
+        </IonSegment>
+      </IonToolbar>
+      {active === 'time' && <SearchByTime />}
+      {active === 'address' && <SearchByAddress />}
+      <AppBackHome />
+    </>
   );
 };
 

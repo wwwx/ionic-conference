@@ -1,14 +1,19 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react'
-import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react'
+import { IonLabel, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react'
 import { useParams } from 'react-router'
 
-import AppHeader from '../../components/AppHeader'
 import { MineRouteParams } from '../../service/mine.model'
 
 const RecordList = lazy(() => import('./RecordList'));
 const RecordPublish = lazy(() => import('./RecordPublish'));
 
-const Mine: React.FC = (props) => {
+/**
+ * 会议纪要
+ *
+ * @param {*} props
+ * @return {*} 
+ */
+const Record: React.FC = (props) => {
   const tabsConfig = [
     {
       label: '发布纪要',
@@ -34,30 +39,27 @@ const Mine: React.FC = (props) => {
   }, [type]);
 
   return (
-    <IonPage className="Reservation">
-      <AppHeader>会议纪要</AppHeader>
-      <IonContent>
-        <IonToolbar>
-          <IonSegment
-            mode="md"
-            value={active}
-            onIonChange={(e: any) => handleTabsChange(e.detail.value)}
-          >
-            {tabsConfig.map((tab) => (
-              <IonSegmentButton key={tab.value} value={tab.value}>
-                <IonLabel>{tab.label}</IonLabel>
-              </IonSegmentButton>
-            ))}
-          </IonSegment>
-        </IonToolbar>
-        <Suspense fallback={<div />}>
-          {tabsConfig.map((tab, i) => {
-            return active === tab.value ? <tab.view key={i} /> : null;
-          })}
-        </Suspense>
-      </IonContent>
-    </IonPage>
+    <>
+      <IonToolbar>
+        <IonSegment
+          mode="md"
+          value={active}
+          onIonChange={(e: any) => handleTabsChange(e.detail.value)}
+        >
+          {tabsConfig.map((tab) => (
+            <IonSegmentButton key={tab.value} value={tab.value}>
+              <IonLabel>{tab.label}</IonLabel>
+            </IonSegmentButton>
+          ))}
+        </IonSegment>
+      </IonToolbar>
+      <Suspense fallback={<div />}>
+        {tabsConfig.map((tab, i) => {
+          return active === tab.value ? <tab.view key={i} /> : null;
+        })}
+      </Suspense>
+    </>
   );
 };
 
-export default Mine;
+export default Record;

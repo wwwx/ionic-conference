@@ -1,7 +1,5 @@
-import { IonContent, IonPage } from '@ionic/react';
-import React, { lazy, Suspense } from 'react';
-import styled from 'styled-components';
-import AppHeader from '../../components/AppHeader';
+import styled from 'styled-components'
+import React, { lazy, Suspense } from 'react'
 
 const Profile = lazy(() => import('./Profile'));
 const Butler = lazy(() => import('./Butler'));
@@ -28,24 +26,26 @@ const ContactUsWrap = styled.div`
   background-position: left center;
 `;
 
+/**
+ * 会议管理
+ *
+ * @return {*} 
+ */
 const Home: React.FC = () => {
   return (
-    <IonPage className="Home">
-      <AppHeader showBackButton={false}>会议管理</AppHeader>
-      <IonContent>
-        <TopBg />
-        <Suspense fallback={<div />}>
-          <Profile />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <Butler />
-        </Suspense>
-        <Suspense fallback={<div />}>
-          <Schedule />
-        </Suspense>
-        <ContactUs />
-      </IonContent>
-    </IonPage>
+    <>
+      <TopBg />
+      <Suspense fallback={<div />}>
+        <Profile />
+      </Suspense>
+      <Suspense fallback={<div />}>
+        <Butler />
+      </Suspense>
+      <Suspense fallback={<div />}>
+        <Schedule />
+      </Suspense>
+      <ContactUs />
+    </>
   );
 };
 
